@@ -3,9 +3,10 @@ package desafio_posto;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class DAOGenericoJPA<T> {
+public class DAOGenericoJPA<T extends AbstractEntity> {
 
 	private static DAOGenericoJPA instance;
 	protected EntityManager entityManager;
@@ -20,7 +21,7 @@ public class DAOGenericoJPA<T> {
 
 	private EntityManager getEntityManager() {
 
-		EntityManegeFactory factory = Persistence.createEntityManagerFactory("crudHibernatePU");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
 
 		if (entityManager == null) {
 			entityManager = factory.createEntityManager();
@@ -29,53 +30,55 @@ public class DAOGenericoJPA<T> {
 		return entityManager;
 	}
 
-	public T getById(final int id) {
-		return entityManager.find(T.class, id);
+	public T getById(Long id, Class c) {
+		return (T) entityManager.find(c, id);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
-		return entityManager.createQuery("FROM" + T.class.getName()).getResultList();
+		return entityManager.createQuery("FROM" + toString().getClass().getName()).getResultList();
 
 	}
 
 	public void persist(T t) {
 		try {
+			System.out.println("Persist: " + t);
 			entityManager.getTransaction().begin();
 			entityManager.persist(t);
+			System.out.println("Ok");
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
 		}
 	}
-	
+
 	public void merge(T t) {
 		try {
 			entityManager.getTransaction().begin();
 			entityManager.merge(t);
 			entityManager.getTransaction().commit();
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
 		}
 	}
-	
+
 	public void remove(T t) {
 		try {
 			entityManager.getTransaction().begin();
-			t = entityManager.find(T.class,t.getId());
-		}catch(Exception ex) {
+			t = (T) entityManager.find(t.getClass(), t.getId());
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
 		}
 	}
-	
-	public void removeById(final int id) {
+
+	public void removeById(Long id, Class c) {
 		try {
-			T t = getById(id);
+			T t = getById(id, c);
 			remove(t);
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}

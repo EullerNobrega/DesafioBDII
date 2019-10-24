@@ -11,8 +11,13 @@ public class Pessoa extends AbstractEntity {
 	
 	private String cpf;
 	
+	
 //	Getters & Setters
 	
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + "]";
+	}
 	public String getNome() {
 		return nome;
 	}

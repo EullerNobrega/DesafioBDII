@@ -1,7 +1,5 @@
 package gui;
 
-import org.jboss.jandex.Main;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

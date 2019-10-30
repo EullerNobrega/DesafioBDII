@@ -1,6 +1,6 @@
 package dao;
 
-
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,27 +10,21 @@ import javax.persistence.PersistenceContext;
 
 import model.AbstractEntity;
 
-public class DAOGenericoJPA<T extends AbstractEntity> {
+public abstract class DAOGenericoJPA<T extends AbstractEntity> {
 
-	private static DAOGenericoJPA<?> instance;
 	@PersistenceContext(unitName = "teste")
 	protected EntityManager entityManager;
+	private Class<T> persistentClass = (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
-	public static DAOGenericoJPA getInstance() {
 
-		if (instance == null) {
-			instance = new DAOGenericoJPA();
-		}
-		return instance;
-	}
-	
-	public DAOGenericoJPA(){
+
+	public DAOGenericoJPA() {
 		entityManager = getEntityManager();
 	}
 
 	private EntityManager getEntityManager() {
 
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("desafio_posto");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
 
 		if (entityManager == null) {
 			entityManager = factory.createEntityManager();
@@ -43,9 +37,8 @@ public class DAOGenericoJPA<T extends AbstractEntity> {
 		return (T) entityManager.find(c, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
-		return entityManager.createQuery("FROM" + toString().getClass().getName()).getResultList();
+		return entityManager.createQuery("from " + persistentClass.getCanonicalName()).getResultList();
 
 	}
 

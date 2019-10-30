@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class AbstractEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	public Long getId() {

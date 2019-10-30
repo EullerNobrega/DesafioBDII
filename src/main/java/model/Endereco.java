@@ -1,17 +1,26 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Endereco extends AbstractEntity {
+	private String logradouro;
+	@NotNull
 	private String cep;
-	private String estado;
 	private String bairro;
 	private String cidade;
-	private String rua;
-	private String numero;
+	private String estado;
 
 //	Getters & Setters
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
 
 	public String getCep() {
 		return cep;
@@ -19,14 +28,6 @@ public class Endereco extends AbstractEntity {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 	public String getBairro() {
@@ -45,20 +46,12 @@ public class Endereco extends AbstractEntity {
 		this.cidade = cidade;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 }

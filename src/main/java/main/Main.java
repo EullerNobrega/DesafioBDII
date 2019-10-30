@@ -1,12 +1,9 @@
 package main;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import model.Endereco;
-import model.Pessoa;
+import java.util.List;
+
+import controller.ControllerFuncionario;
+import model.Funcionario;
 
 //public class Main extends Application {
 //	public void start(Stage stage) {
@@ -32,6 +29,12 @@ import model.Pessoa;
 
 public class Main {
 	public static void main(String [] args) {
-		
+		Funcionario p = new Funcionario();
+		p.setCpf("123123");
+		ControllerFuncionario<Funcionario> cPessoa = new ControllerFuncionario<Funcionario>();
+//		cPessoa.inserir(p);
+		List<Funcionario> f;
+		f = cPessoa.consultarTodos();
+		System.out.println(f);
 	}
 }

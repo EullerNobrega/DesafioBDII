@@ -1,17 +1,19 @@
 package model;
 
-import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
+import br.com.caelum.stella.bean.validation.CNPJ;
 import br.com.caelum.stella.bean.validation.CPF;
 
-@Entity
+@MappedSuperclass
 public class Pessoa extends AbstractEntity {
-	@CPF
-	private String cpf;
 	@NotNull
 	private String nome;
-	private Endereco endereco;
+	@CPF
+	private String cpf;
+	@CNPJ
+	private String cpnj;
 
 //	Getters & Setters
 
@@ -31,12 +33,12 @@ public class Pessoa extends AbstractEntity {
 		this.nome = nome;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	public String getCpnj() {
+		return cpnj;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setCpnj(String cpnj) {
+		this.cpnj = cpnj;
 	}
 
 }

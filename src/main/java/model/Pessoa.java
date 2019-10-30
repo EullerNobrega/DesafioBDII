@@ -1,10 +1,15 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+import br.com.caelum.stella.bean.validation.CPF;
 
 @Entity
 public class Pessoa extends AbstractEntity {
+	@CPF
 	private String cpf;
+	@NotNull
 	private String nome;
 	private Endereco endereco;
 

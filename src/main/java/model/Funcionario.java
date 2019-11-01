@@ -1,14 +1,14 @@
 package model;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Funcionario extends Pessoa {
-	@NotNull
 	private String login;
-	@NotNull
+	@Size(min = 8)
 	private String senha;
+	private TipoFuncionario tipo;
 
 //	Getters & Setters
 
@@ -26,6 +26,14 @@ public class Funcionario extends Pessoa {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public TipoFuncionario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoFuncionario tipo) {
+		this.tipo = tipo;
 	}
 
 }

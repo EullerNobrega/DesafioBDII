@@ -1,22 +1,21 @@
 package model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+import br.com.caelum.stella.bean.validation.CNPJ;
 
 @Entity
 public class Posto extends AbstractEntity {
+	@OneToOne
+	@NotNull
+	private Endereco endereco;
 	private String razaoSocial;
 	private String nomeFantasia;
-	@OneToOne
-	private Bandeira bandeira;
-	@OneToOne
-	private Endereco endereco;
-	@OneToMany(mappedBy = "posto")
-	private List<Usuario> usuarios;
-
+	@CNPJ
+	private String CNPJ;
+	private String bandeira;
 
 //	Getters & Setters
 
@@ -36,20 +35,28 @@ public class Posto extends AbstractEntity {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public Bandeira getBandeira() {
-		return bandeira;
-	}
-
-	public void setBandeira(Bandeira bandeira) {
-		this.bandeira = bandeira;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getCNPJ() {
+		return CNPJ;
+	}
+
+	public void setCNPJ(String cNPJ) {
+		CNPJ = cNPJ;
+	}
+
+	public String getBandeira() {
+		return bandeira;
+	}
+
+	public void setBandeira(String bandeira) {
+		this.bandeira = bandeira;
 	}
 
 }

@@ -31,10 +31,10 @@ public class Main {
 	public static void main(String [] args) {
 		Funcionario p = new Funcionario();
 		p.setCpf("123123");
-		ControllerFuncionario<Funcionario> cPessoa = new ControllerFuncionario<Funcionario>();
+		ControllerFuncionario<Funcionario> cFuncionario = new ControllerFuncionario<Funcionario>();
 //		cPessoa.inserir(p);
 		List<Funcionario> f;
-		f = cPessoa.consultarTodos();
+		f = cFuncionario.consultarTodos();
 		System.out.println(f);
 	}
 }

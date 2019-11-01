@@ -12,8 +12,6 @@ public class Fornecedor extends AbstractEntity{
 	private String nomeFantasia;
 	@CNPJ
 	private String CNPJ;
-	@ManyToMany
-	@JoinTable(name = "Fornecedor_Combustivel")
 	private Combustivel combustivel;
 	
 //	Getters & Setters

@@ -14,6 +14,13 @@ public class Pessoa extends AbstractEntity {
 	private String cpf;
 	@CNPJ
 	private String cpnj;
+	
+public Pessoa(String nome, String cpf, String cpnj) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cpnj = cpnj;
+	}
 
 //	Getters & Setters
 

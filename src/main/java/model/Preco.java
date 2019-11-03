@@ -6,11 +6,21 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Preco extends AbstractEntity{
+public class Preco extends AbstractEntity {
 	@NotNull
 	private String valor;
 	@NotNull
 	private Date momento;
+
+	public Preco() {
+		super();
+	}
+
+	public Preco(String valor, Date momento) {
+		super();
+		this.valor = valor;
+		this.momento = momento;
+	}
 
 //	Getters & Setters
 

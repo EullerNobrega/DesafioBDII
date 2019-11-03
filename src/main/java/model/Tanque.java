@@ -1,12 +1,25 @@
 package model;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+@Entity
 public class Tanque extends AbstractEntity {
 	@OneToOne
 	private Combustivel combustivel;
 	private double volumeMax;
 	private double volumeAtual;
+
+	public Tanque(Combustivel combustivel, double volumeMax, double volumeAtual) {
+		super();
+		this.combustivel = combustivel;
+		this.volumeMax = volumeMax;
+		this.volumeAtual = volumeAtual;
+	}
+
+	public Tanque() {
+		super();
+	}
 
 //	Getters & Setters
 

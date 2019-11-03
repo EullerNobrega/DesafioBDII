@@ -1,6 +1,6 @@
 package util;
 
-public class FornecedorCombustivel implements persistEntity{
+public class PersistFornecedorCombustivel implements persistEntity{
 
 	public void persistMock() {
 		// TODO Auto-generated method stub

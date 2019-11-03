@@ -1,0 +1,5 @@
+2019-10-27 23:06:33,881 WARN  [DefaultSoapUICore] Missing folder [C:\Users\Euller Nóbrega\ext] for external libraries
+2019-10-27 23:06:34,184 INFO  [DefaultSoapUICore] initialized soapui-settings from [C:\Users\Euller Nóbrega\soapui-settings.xml]
+2019-10-27 23:06:34,697 INFO  [WorkspaceImpl] Loading workspace from [C:\Users\Euller Nóbrega\intellij-soapui-workspace.xml]
+2019-10-27 23:40:44,785 INFO  [WorkspaceImpl] Saved workspace to [C:\Users\Euller Nóbrega\intellij-soapui-workspace.xml]
+2019-10-27 23:40:44,788 INFO  [DefaultSoapUICore] Settings saved to [C:\Users\Euller Nóbrega\soapui-settings.xml]

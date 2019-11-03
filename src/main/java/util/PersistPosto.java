@@ -1,9 +1,13 @@
 package util;
 
-public class PersistPosto implements persistEntity{
+import model.Endereco;
+import model.Posto;
 
+public class PersistPosto implements persistEntity{
+	
 	public void persistMock() {
-		// TODO Auto-generated method stub
+		Endereco end = null;
+		Posto p = new Posto(end, "PostoSmartRS", "PostoSmart", "94.861.248/0001-90", "Ipiranga");
 		
 	}
 

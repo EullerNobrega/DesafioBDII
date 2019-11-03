@@ -17,6 +17,19 @@ public class Posto extends AbstractEntity {
 	private String CNPJ;
 	private String bandeira;
 
+	public Posto(Endereco endereco, String razaoSocial, String nomeFantasia, String cNPJ, String bandeira) {
+		super();
+		this.endereco = endereco;
+		this.razaoSocial = razaoSocial;
+		this.nomeFantasia = nomeFantasia;
+		CNPJ = cNPJ;
+		this.bandeira = bandeira;
+	}
+
+	public Posto() {
+		super();
+	}
+
 //	Getters & Setters
 
 	public String getRazaoSocial() {

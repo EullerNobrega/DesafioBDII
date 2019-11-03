@@ -14,9 +14,8 @@ public abstract class DAOGenericoJPA<T extends AbstractEntity> {
 
 	@PersistenceContext(unitName = "teste")
 	protected EntityManager entityManager;
-	private Class<T> persistentClass = (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-
-
+	private Class<T> persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+			.getActualTypeArguments()[0];
 
 	public DAOGenericoJPA() {
 		entityManager = getEntityManager();

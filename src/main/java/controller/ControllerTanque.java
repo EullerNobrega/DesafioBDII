@@ -29,8 +29,8 @@ public class ControllerTanque<T extends AbstractEntity> {
 		daoTanque.removeById(id, tanque.getClass());
 	}
 
-	public void consultarPorId(Tanque tanque) {
-		daoTanque.getById(tanque.getId(), tanque.getClass());
+	public Tanque consultarPorId(Long id, Class c) {
+		return daoTanque.getById(id, c);
 	}
 
 	public List<Tanque> consultarTodos() {

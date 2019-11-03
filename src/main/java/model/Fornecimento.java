@@ -1,26 +1,30 @@
 package model;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Fornecimento extends AbstractEntity {
-	@OneToOne
+	@ManyToOne
 	private Fornecedor fornecedor;
-	@OneToOne
-	private Combustivel conbustivel;
-	@OneToOne
+	@ManyToOne
+	private Combustivel combustivel;
+	@ManyToOne
 	private Posto posto;
-	private double valor;
+	@ManyToOne
+	private Tanque tanque;
+	@ManyToOne
+	private Preco valor;
 	private double litro;
 	private String data;
 
-	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, double valor, double litro,
+	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Preco valor, double litro,
 			String data) {
 		super();
 		this.fornecedor = fornecedor;
-		this.conbustivel = conbustivel;
+		this.combustivel = conbustivel;
 		this.posto = posto;
+		this.tanque = tanque;
 		this.valor = valor;
 		this.litro = litro;
 		this.data = data;
@@ -29,23 +33,23 @@ public class Fornecimento extends AbstractEntity {
 	public Fornecimento() {
 		super();
 	}
-
+	
 //	Getters & Setters
 
-	public Fornecedor getForncedor() {
+	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setForncedor(Fornecedor forncedor) {
-		this.fornecedor = forncedor;
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 
-	public Combustivel getConbustivel() {
-		return conbustivel;
+	public Combustivel getCombustivel() {
+		return combustivel;
 	}
 
-	public void setConbustivel(Combustivel conbustivel) {
-		this.conbustivel = conbustivel;
+	public void setCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
 	}
 
 	public Posto getPosto() {
@@ -56,11 +60,11 @@ public class Fornecimento extends AbstractEntity {
 		this.posto = posto;
 	}
 
-	public double getValor() {
+	public Preco getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(Preco valor) {
 		this.valor = valor;
 	}
 
@@ -79,5 +83,6 @@ public class Fornecimento extends AbstractEntity {
 	public void setData(String data) {
 		this.data = data;
 	}
+
 
 }

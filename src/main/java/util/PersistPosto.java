@@ -1,14 +1,22 @@
 package util;
 
+import controller.ControllerEndereco;
+import controller.ControllerPosto;
 import model.Endereco;
 import model.Posto;
 
 public class PersistPosto implements persistEntity{
+	ControllerPosto<Posto> controllerPosto = new ControllerPosto<Posto>();
 	
 	public void persistMock() {
-		Endereco end = null;
-		Posto p = new Posto(end, "PostoSmartRS", "PostoSmart", "94.861.248/0001-90", "Ipiranga");
-		
+		Endereco end = select();
+		Posto p = new Posto(end, "PostoSmart", "PS", "94.861.248/0001-90", "Ipiranga");
+		controllerPosto.inserir(p);
+	}
+	
+	private Endereco select() {
+		ControllerEndereco<Endereco> controllerEndereco = new ControllerEndereco<Endereco>();
+		return controllerEndereco.consultarPorId((long)1);
 	}
 
 }

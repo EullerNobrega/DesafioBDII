@@ -29,8 +29,8 @@ public class ControllerEndereco<T extends AbstractEntity> {
 		daoEndereco.removeById(id, endereco.getClass());
 	}
 
-	public void consultarPorId(Endereco endereco) {
-		daoEndereco.getById(endereco.getId(), endereco.getClass());
+	public Endereco consultarPorId(Long id) {
+		return daoEndereco.getById(id, Endereco.class);
 	}
 
 	public List<Endereco> consultarTodos() {

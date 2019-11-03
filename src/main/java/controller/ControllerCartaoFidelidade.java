@@ -29,8 +29,8 @@ public class ControllerCartaoFidelidade<T extends AbstractEntity> {
 		daoCartaoFidelidade.removeById(id, cartaoFidelidade.getClass());
 	}
 
-	public void consultarPorId(CartaoFidelidade cartaoFidelidade) {
-		daoCartaoFidelidade.getById(cartaoFidelidade.getId(), cartaoFidelidade.getClass());
+	public CartaoFidelidade consultarPorId(Long id) {
+		return daoCartaoFidelidade.getById(id, CartaoFidelidade.class);
 	}
 
 	public List<CartaoFidelidade> consultarTodos() {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import controller.ControllerCombustivel;
 import model.Combustivel;
+import model.Preco;
 
 public class PersistCombustivel implements persistEntity {
 	private ControllerCombustivel<Combustivel> controllerCombustivel = new ControllerCombustivel<Combustivel>();

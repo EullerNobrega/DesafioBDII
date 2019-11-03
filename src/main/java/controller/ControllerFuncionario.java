@@ -29,8 +29,8 @@ public class ControllerFuncionario<T extends AbstractEntity> {
 		daoFuncionario.removeById(id, funcionario.getClass());
 	}
 
-	public void consultarPorId(Funcionario funcionario) {
-		daoFuncionario.getById(funcionario.getId(), funcionario.getClass());
+	public Funcionario consultarPorId(Long id) {
+		return daoFuncionario.getById(id, Funcionario.class);
 	}
 
 	public List<Funcionario> consultarTodos() {

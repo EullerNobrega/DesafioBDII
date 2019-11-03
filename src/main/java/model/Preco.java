@@ -1,43 +1,31 @@
 package model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Preco extends AbstractEntity {
 	@NotNull
-	private String valor;
-	@NotNull
-	private Date momento;
+	private Double valor;
 
 	public Preco() {
 		super();
 	}
 
-	public Preco(String valor, Date momento) {
+	public Preco(Double valor) {
 		super();
 		this.valor = valor;
-		this.momento = momento;
 	}
 
 //	Getters & Setters
 
-	public String getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
-	public Date getMomento() {
-		return momento;
-	}
-
-	public void setMomento(Date momento) {
-		this.momento = momento;
-	}
 
 }

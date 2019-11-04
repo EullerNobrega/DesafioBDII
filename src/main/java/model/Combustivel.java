@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 public class Combustivel extends AbstractEntity {
 	private String nomeCombustivel;
 
-	public Combustivel(String nomeCombustivelo) {
+	public Combustivel(String nomeCombustivel) {
 		super();
 		this.nomeCombustivel = nomeCombustivel;
 	}

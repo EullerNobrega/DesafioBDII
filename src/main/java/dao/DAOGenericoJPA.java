@@ -21,7 +21,7 @@ public abstract class DAOGenericoJPA<T extends AbstractEntity> {
 		entityManager = getEntityManager();
 	}
 
-	private EntityManager getEntityManager() {
+	public EntityManager getEntityManager() {
 
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
 
@@ -83,4 +83,19 @@ public abstract class DAOGenericoJPA<T extends AbstractEntity> {
 			ex.printStackTrace();
 		}
 	}
+
+	public Class<T> getPersistentClass() {
+		return persistentClass;
+	}
+
+	
+	public void setPersistentClass(Class<T> persistentClass) {
+		this.persistentClass = persistentClass;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	
 }

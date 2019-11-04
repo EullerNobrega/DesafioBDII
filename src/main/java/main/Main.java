@@ -1,5 +1,10 @@
 package main;
 
+import java.util.List;
+
+import controller.ControllerFornecedor;
+import model.Fornecedor;
+import model.Funcionario;
 import util.PersistCartaoFidelidade;
 import util.PersistCliente;
 import util.PersistCombustivel;
@@ -35,37 +40,39 @@ import util.PersistTanque;
 
 public class Main {
 	public static void main(String[] args) {
-		PersistEndereco pend = new PersistEndereco();
-		pend.persistMock();
+//		PersistEndereco pend = new PersistEndereco();
+//		pend.persistMock();
+//		
+//		PersistPreco ppr = new PersistPreco();
+//		ppr.persistMock();
+//
+//		PersistPosto ppos = new PersistPosto();
+//		ppos.persistMock();
+//
+//		PersistCartaoFidelidade pcf = new PersistCartaoFidelidade();
+//		pcf.persistMock();
+//
+//		PersistCombustivel pcomb = new PersistCombustivel();
+//		pcomb.persistMock();
+//
+//		PersistFornecedor pfor = new PersistFornecedor();
+//		pfor.persistMock();
+//
+//		PersistTanque ptanq = new PersistTanque();
+//		ptanq.persistMock();
+//		
+//		PersistFornecimento pforc = new PersistFornecimento();
+//		pforc.persistMock();
+//		
+//		PersistCliente pcli = new PersistCliente();
+//		pcli.persistMock();
+//		
+//		PersistFuncionario pfunc = new PersistFuncionario();
+//		pfunc.persistMock();
+//		
+		ControllerFornecedor<Fornecedor> controllerFornecedor = new ControllerFornecedor<Fornecedor>();
+		 List<Fornecedor> ranking = controllerFornecedor.Ranking();
 		
-		PersistPreco ppr = new PersistPreco();
-		ppr.persistMock();
-
-		PersistPosto ppos = new PersistPosto();
-		ppos.persistMock();
-
-		PersistCartaoFidelidade pcf = new PersistCartaoFidelidade();
-		pcf.persistMock();
-
-		PersistCombustivel pcomb = new PersistCombustivel();
-		pcomb.persistMock();
-
-		PersistFornecedor pfor = new PersistFornecedor();
-		pfor.persistMock();
-
-		PersistTanque ptanq = new PersistTanque();
-		ptanq.persistMock();
-		
-		PersistFornecimento pforc = new PersistFornecimento();
-		pforc.persistMock();
-		
-		PersistCliente pcli = new PersistCliente();
-		pcli.persistMock();
-		
-		PersistFuncionario pfunc = new PersistFuncionario();
-		pfunc.persistMock();
-		
-		
-
+		 System.out.println(ranking);
 	}
 }

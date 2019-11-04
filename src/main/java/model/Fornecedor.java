@@ -62,4 +62,12 @@ public class Fornecedor extends AbstractEntity {
 		this.combustiveis = combustiveis;
 	}
 
+	@Override
+	public String toString() {
+		return "Fornecedor [razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", CNPJ=" + CNPJ
+				+ ", combustiveis=" + combustiveis + "]";
+	}
+	
+	
+
 }

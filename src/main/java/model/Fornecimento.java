@@ -13,12 +13,11 @@ public class Fornecimento extends AbstractEntity {
 	private Posto posto;
 	@ManyToOne
 	private Tanque tanque;
-	@ManyToOne
-	private Preco valor;
+	private Double valor;
 	private double litro;
 	private String data;
 
-	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Preco valor, double litro,
+	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor, double litro,
 			String data) {
 		super();
 		this.fornecedor = fornecedor;
@@ -60,11 +59,11 @@ public class Fornecimento extends AbstractEntity {
 		this.posto = posto;
 	}
 
-	public Preco getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(Preco valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 

@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import dao.DAOFornecimento;
 import model.AbstractEntity;
 import model.Fornecimento;
@@ -30,11 +32,25 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 	}
 
 	public void consultarPorId(Fornecimento fornecimento) {
-		daoFornecimento.getById(fornecimento.getId(), fornecimento.getClass());
+//		daoFornecimento.getById(fornecimento.getId(), fornecimento.getClass());
 	}
 
 	public List<Fornecimento> consultarTodos() {
 		return daoFornecimento.findAll();
+	}
+
+	public List<Fornecimento> Ranking() {
+
+		Query createQuery = daoFornecimento.getEntityManager()
+				.createQuery("SELECT f " + "FROM Fornecimento f " + "ORDER BY f.valor desc");
+
+		List<Fornecimento> Fornecimento = createQuery.getResultList();
+
+		for (Fornecimento f : Fornecimento) {
+			System.out.println(f);
+		}
+		return null;
+
 	}
 
 }

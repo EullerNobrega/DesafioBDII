@@ -1,24 +1,29 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Fornecimento extends AbstractEntity {
 	@ManyToOne
+	@JoinColumn(name = "fornecedor")
 	private Fornecedor fornecedor;
 	@ManyToOne
+	@JoinColumn(name = "combustivel")
 	private Combustivel combustivel;
 	@ManyToOne
+	@JoinColumn(name = "posto")
 	private Posto posto;
 	@ManyToOne
+	@JoinColumn(name = "tanque")
 	private Tanque tanque;
 	private Double valor;
 	private double litro;
 	private String data;
 
-	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor, double litro,
-			String data) {
+	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor,
+			double litro, String data) {
 		super();
 		this.fornecedor = fornecedor;
 		this.combustivel = conbustivel;
@@ -32,8 +37,12 @@ public class Fornecimento extends AbstractEntity {
 	public Fornecimento() {
 		super();
 	}
-	
+
 //	Getters & Setters
+
+	public Long getId() {
+		return super.getId();
+	}
 
 	public Fornecedor getFornecedor() {
 		return fornecedor;
@@ -83,5 +92,12 @@ public class Fornecimento extends AbstractEntity {
 		this.data = data;
 	}
 
+	@Override
+	public String toString() {
+		return "Fornecimento [fornecedor=" + fornecedor + ", combustivel=" + combustivel + ", posto=" + posto
+				+ ", tanque=" + tanque + ", valor=" + valor + ", litro=" + litro + ", data=" + data + "]";
+	}
+	
+	
 
 }

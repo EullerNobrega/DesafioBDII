@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import dao.DAOCombustivel;
 import model.AbstractEntity;
 import model.CartaoFidelidade;
@@ -36,6 +38,16 @@ public class ControllerCombustivel<T extends AbstractEntity> {
 
 	public List<Combustivel> consultarTodos() {
 		return daoCombustivel.findAll();
+	}
+	
+	public Combustivel maisVendido() {
+		Query createQuery = daoCombustivel.getEntityManager().
+				createQuery("SELECT C FROM Combustivel C");
+		List<Combustivel> combustiveis = createQuery.getResultList();
+		System.out.println(combustiveis);
+		
+		return null;
+		
 	}
 
 }

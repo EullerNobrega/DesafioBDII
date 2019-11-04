@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
@@ -29,10 +30,15 @@ public class Fornecedor extends AbstractEntity {
 	}
 
 //	Getters & Setters
+	
+	public Long getId() {
+		return super.getId();
+	}
 
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
+
 
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;

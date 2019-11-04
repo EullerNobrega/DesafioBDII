@@ -68,7 +68,7 @@ public abstract class DAOGenericoJPA<T extends AbstractEntity> {
 	public void remove(T t) {
 		try {
 			entityManager.getTransaction().begin();
-			t = (T) entityManager.find(t.getClass(), t.getId());
+//			t = (T) entityManager.find(t.getClass(), t.getId());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();

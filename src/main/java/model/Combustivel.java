@@ -17,6 +17,10 @@ public class Combustivel extends AbstractEntity {
 
 //	Getters & Setters
 
+	public Long getId() {
+		return super.getId();
+	}
+	
 	public String getNomeCombustivel() {
 		return nomeCombustivel;
 
@@ -26,4 +30,10 @@ public class Combustivel extends AbstractEntity {
 		this.nomeCombustivel = nomeCombustivel;
 	}
 
+	@Override
+	public String toString() {
+		return "Combustivel [nomeCombustivel=" + nomeCombustivel + "]";
+	}
+
+	
 }

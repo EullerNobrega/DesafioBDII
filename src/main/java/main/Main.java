@@ -1,21 +1,5 @@
 package main;
 
-import java.util.List;
-
-import controller.ControllerFornecedor;
-import model.Fornecedor;
-import model.Funcionario;
-import util.PersistCartaoFidelidade;
-import util.PersistCliente;
-import util.PersistCombustivel;
-import util.PersistEndereco;
-import util.PersistFornecedor;
-import util.PersistFornecimento;
-import util.PersistFuncionario;
-import util.PersistPosto;
-import util.PersistPreco;
-import util.PersistTanque;
-
 //public class Main extends Application {
 //	public void start(Stage stage) {
 //		try {
@@ -61,7 +45,7 @@ public class Main {
 //		PersistTanque ptanq = new PersistTanque();
 //		ptanq.persistMock();
 //		
-//		PersistFornecimento pforc = new PersistFornecimento();
+//		PersistFornecimento pforc = new PersistFornecimento();3w
 //		pforc.persistMock();
 //		
 //		PersistCliente pcli = new PersistCliente();
@@ -69,10 +53,11 @@ public class Main {
 //		
 //		PersistFuncionario pfunc = new PersistFuncionario();
 //		pfunc.persistMock();
-//		
-		ControllerFornecedor<Fornecedor> controllerFornecedor = new ControllerFornecedor<Fornecedor>();
-		 List<Fornecedor> ranking = controllerFornecedor.Ranking();
-		
-		 System.out.println(ranking);
+
+//		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
+//		controllerFornecimento.Ranking();
+
+//		ControllerCombustivel_Cliente<Combustivel_Cliente> controllerCombustivel_Cliente = new ControllerCombustivel_Cliente<Combustivel_Cliente>();
+//		controllerCombustivel.maisVendido();
 	}
 }

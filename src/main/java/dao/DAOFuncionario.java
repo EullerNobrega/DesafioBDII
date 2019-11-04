@@ -2,6 +2,7 @@ package dao;
 
 import model.Funcionario;
 
+
 public class DAOFuncionario extends DAOGenericoJPA<Funcionario> {
 	private static DAOFuncionario instance;
 

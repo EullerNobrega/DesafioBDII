@@ -6,33 +6,22 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="teste">
+	<persistence-unit name="desafio_posto">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-<!-- 		<class>br.unicap.team_paf.desafio_posto.Pessoa</class> -->
 		<properties>
 			<!-- MYSQL -->
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" 
-				/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/teste" 
-				/>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/teste?serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="pernambuco" />
-
-
-			<!-- SQLSERVER -->
-<!-- 			<property name="javax.persistence.jdbc.driver" -->
-<!-- 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> -->
-<!-- 			<property name="javax.persistence.jdbc.url" -->
-<!-- 				value="jdbc:sqlserver://localhost:1433;databaseName=teste" /> -->
-<!-- 			<property name="javax.persistence.jdbc.user" value="sa" /> -->
-<!-- 			<property name="javax.persistence.jdbc.password" -->
-<!-- 				value="Root1234" /> -->
-
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
 
 			<!-- HIBERNATE -->
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-<!-- 			<property name="hibernate.archive.autodetection" -->
-<!-- 				value="class, hbm" /> -->
+			<property name="hibernate.archive.autodetection"
+				value="class, hbm" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 

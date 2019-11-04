@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="439.0" prefWidth="500.0" style="-fx-background-color: orange;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <BarChart>
+        <xAxis>
+          <CategoryAxis label="Gasolina" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Litros" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <PieChart title="Nível Gasolina" />
+   </children>
+</VBox>

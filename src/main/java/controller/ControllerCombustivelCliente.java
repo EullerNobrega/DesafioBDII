@@ -39,34 +39,40 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	public List<CombustivelCliente> consultarTodos() {
 		return daoCombustivelCliente.findAll();
 	}
-	
-	private  class CombustivelQTD {
+
+	public class DTO {
+		int max;
 		Combustivel c;
-		int qtd;
+
 	}
 
-	public void maisVendido() {
-		List<CombustivelCliente> list;
-		Query createQuery = daoCombustivelCliente.getEntityManager().
-				createQuery("SELECT CL FROM CombustivelCliente CL");
-		list = createQuery.getResultList();
-		
-		
-		
-		List<CombustivelQTD> listCQtd;
-		
-		for(CombustivelCliente c : list) {
-			if(FindGasolina(c)) {
-				
+	public Combustivel maisVendido() {
+		Query createQuery = daoCombustivelCliente.getEntityManager()
+				.createQuery("SELECT count(CL.id), combustivel FROM CombustivelCliente CL group by combustivel");
+		List<Object[]> resultList = createQuery.getResultList();
+
+		Combustivel maior = new Combustivel();
+		maior.setTotalVendas(0);
+
+		for (Object[] o : resultList) {
+			Combustivel c = (Combustivel) o[1];
+			c.setTotalVendas((long) o[0]);
+
+			if (c.getTotalVendas() > maior.getTotalVendas()) {
+				maior = c;
 			}
+
 		}
-		
+		System.out.println(maior);
+
+		return maior;
+
 	}
-	
-	private boolean FindGasolina(CombustivelCliente comb) {
-		for(CombustivelCliente c : listCQtd) {
-			comb.
-		}
-	}
+//	
+//	private boolean FindGasolina(CombustivelCliente comb) {
+//		for(CombustivelCliente c : listCQtd) {
+//			comb.
+//		}
+//	}
 
 }

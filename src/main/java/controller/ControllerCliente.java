@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import dao.DAOCliente;
 import model.AbstractEntity;
 import model.Cliente;
@@ -35,6 +37,14 @@ public class ControllerCliente<T extends AbstractEntity> {
 
 	public List<Cliente> consultarTodos() {
 		return daoCliente.findAll();
+	}
+	
+	public  List<Cliente> ClientesFidelidade(){
+		Query createQuery = daoCliente.getEntityManager().createQuery("SELECT C FROM Cliente C WHERE cartao_id is not null");
+		List<Cliente> list = createQuery.getResultList();
+		System.out.println(list);
+		return list;
+		
 	}
 
 }

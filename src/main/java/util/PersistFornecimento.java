@@ -1,5 +1,6 @@
 package util;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,26 +62,26 @@ public class PersistFornecimento implements persistEntity {
 
 		Posto p = selectPos((long) 1);
 
-		list.add(new Fornecimento(f1, c2, p, t1, (p1.getValor() * 10000), 10000, "06/14/18"));
-		list.add(new Fornecimento(f3, c1, p, t2, (p2.getValor() * 13000), 13000, "03/04/19"));
-		list.add(new Fornecimento(f1, c2, p, t3, (p3.getValor() * 6200), 6200, "06/17/18"));
-		list.add(new Fornecimento(f2, c3, p, t1, (p4.getValor() * 14000), 14000, "08/22/18"));
-		list.add(new Fornecimento(f5, c2, p, t3, (p5.getValor() * 9750), 9750, "07/07/18"));
-		list.add(new Fornecimento(f4, c3, p, t2, (p6.getValor() * 13000), 13000, "09/19/18"));
-		list.add(new Fornecimento(f5, c1, p, t4, (p7.getValor() * 12800), 12800, "10/07/18"));
-		list.add(new Fornecimento(f4, c1, p, t1, (p8.getValor() * 13700), 13700, "08/15/18"));
-		list.add(new Fornecimento(f2, c1, p, t3, (p9.getValor() * 1450), 14500, "05/18/18"));
-		list.add(new Fornecimento(f3, c4, p, t4, (p10.getValor() * 9000), 9000, "09/03/18"));
-		list.add(new Fornecimento(f5, c1, p, t1, (p2.getValor() * 13000), 13000, "10/12/18"));
-		list.add(new Fornecimento(f1, c5, p, t2, (p4.getValor() * 4500), 4500, "03/06/19"));
-		list.add(new Fornecimento(f5, c4, p, t4, (p6.getValor() * 6000), 6000, "03/20/18"));
-		list.add(new Fornecimento(f2, c4, p, t1, (p8.getValor() * 7500), 7500, "01/16/19"));
-		list.add(new Fornecimento(f5, c1, p, t3, (p10.getValor() * 8000), 8000, "11/07/18"));
-		list.add(new Fornecimento(f1, c1, p, t4, (p1.getValor() * 9500), 9500, "04/14/18"));
-		list.add(new Fornecimento(f3, c1, p, t3, (p3.getValor() * 11000), 11000, "11/09/18"));
-		list.add(new Fornecimento(f2, c3, p, t2, (p5.getValor() * 9700), 9700, "09/03/18"));
-		list.add(new Fornecimento(f1, c5, p, t4, (p7.getValor() * 7800), 7800, "05/02/18"));
-		list.add(new Fornecimento(f4, c1, p, t1, (p9.getValor() * 2000), 2000, "06/26/18"));
+	    list.add(new Fornecimento(f1, c2, p, t1, (p1.getValor() * 10000), 10000,LocalDate.of(18, Month., dayOfMonth)));
+		list.add(new Fornecimento(f3, c1, p, t2, (p2.getValor() * 13000), 13000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f1, c2, p, t3, (p3.getValor() * 6200), 6200, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f2, c3, p, t1, (p4.getValor() * 14000), 14000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f5, c2, p, t3, (p5.getValor() * 9750), 9750, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f4, c3, p, t2, (p6.getValor() * 13000), 13000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f5, c1, p, t4, (p7.getValor() * 12800), 12800, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f4, c1, p, t1, (p8.getValor() * 13700), 13700, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f2, c1, p, t3, (p9.getValor() * 1450), 14500, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f3, c4, p, t4, (p10.getValor() * 9000), 9000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f5, c1, p, t1, (p2.getValor() * 13000), 13000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f1, c5, p, t2, (p4.getValor() * 4500), 4500, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f5, c4, p, t4, (p6.getValor() * 6000), 6000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f2, c4, p, t1, (p8.getValor() * 7500), 7500, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f5, c1, p, t3, (p10.getValor() * 8000), 8000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f1, c1, p, t4, (p1.getValor() * 9500), 9500, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f3, c1, p, t3, (p3.getValor() * 11000), 11000, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f2, c3, p, t2, (p5.getValor() * 9700), 9700, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f1, c5, p, t4, (p7.getValor() * 7800), 7800, LocalDate.of(2018, Month.dayOfMonth));
+		list.add(new Fornecimento(f4, c1, p, t1, (p9.getValor() * 2000), 2000, LocalDate.of(2018, Month.dayOfMonth));
 
 		for (Fornecimento f : list) {
 			controllerFornecimento.inserir(f);

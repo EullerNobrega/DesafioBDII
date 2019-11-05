@@ -32,6 +32,10 @@ public class CombustivelCliente extends AbstractEntity {
 		this.litro = litro;
 		this.valorTotal = valorTotal;
 	}
+
+	public CombustivelCliente() {
+
+	}
 //	Getters & Setters
 
 	public Posto getPosto() {
@@ -80,6 +84,12 @@ public class CombustivelCliente extends AbstractEntity {
 
 	public void setValorTotao(Double valorTotao) {
 		this.valorTotal = valorTotao;
+	}
+
+	@Override
+	public String toString() {
+		return "CombustivelCliente [posto=" + posto + ", combustivel=" + combustivel + ", cliente=" + cliente
+				+ ", data=" + data + ", litro=" + litro + ", valorTotal=" + valorTotal + "]";
 	}
 
 }

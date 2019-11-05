@@ -32,4 +32,11 @@ public class Cliente extends Pessoa {
 		this.cartao = cartao;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [cartao=" + cartao + "]";
+	}
+	
+	
+
 }

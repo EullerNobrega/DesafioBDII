@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,10 +22,10 @@ public class Fornecimento extends AbstractEntity {
 	private Tanque tanque;
 	private Double valor;
 	private double litro;
-	private String data;
+	private LocalDate data;
 
 	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor,
-			double litro, String data) {
+			double litro, LocalDate data) {
 		super();
 		this.fornecedor = fornecedor;
 		this.combustivel = conbustivel;
@@ -84,11 +86,11 @@ public class Fornecimento extends AbstractEntity {
 		this.litro = litro;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
@@ -97,7 +99,5 @@ public class Fornecimento extends AbstractEntity {
 		return "Fornecimento [fornecedor=" + fornecedor + ", combustivel=" + combustivel + ", posto=" + posto
 				+ ", tanque=" + tanque + ", valor=" + valor + ", litro=" + litro + ", data=" + data + "]";
 	}
-	
-	
 
 }

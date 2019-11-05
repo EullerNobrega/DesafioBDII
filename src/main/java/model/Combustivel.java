@@ -1,10 +1,13 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 @Entity
 public class Combustivel extends AbstractEntity {
 	private String nomeCombustivel;
+	@Transient
+	private long totalVendas;
 
 	public Combustivel(String nomeCombustivel) {
 		super();
@@ -30,10 +33,23 @@ public class Combustivel extends AbstractEntity {
 		this.nomeCombustivel = nomeCombustivel;
 	}
 
+
+	public long getTotalVendas() {
+		return totalVendas;
+	}
+
+	public void setTotalVendas(long totalVendas) {
+		this.totalVendas = totalVendas;
+	}
+
 	@Override
 	public String toString() {
-		return "Combustivel [nomeCombustivel=" + nomeCombustivel + "]";
+		return "Combustivel [nomeCombustivel=" + nomeCombustivel + ", totalVendas=" + totalVendas + "]";
 	}
+	
+	
+	
+	
 
 	
 }

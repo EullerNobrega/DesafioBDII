@@ -24,6 +24,10 @@ public Pessoa(String nome, String cpf, String cpnj) {
 
 //	Getters & Setters
 
+	public Pessoa() {
+	// TODO Auto-generated constructor stub
+}
+
 	public String getCpf() {
 		return cpf;
 	}

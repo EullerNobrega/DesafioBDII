@@ -22,6 +22,10 @@ public class Funcionario extends Pessoa {
 		super(nome, cpf, cpnj);
 	}
 
+	public Funcionario() {
+		super();
+	}
+
 //	Getters & Setters
 
 	public String getLogin() {

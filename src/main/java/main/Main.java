@@ -1,5 +1,8 @@
 package main;
 
+import controller.ControllerCombustivelCliente;
+import model.CombustivelCliente;
+
 //public class Main extends Application {
 //	public void start(Stage stage) {
 //		try {
@@ -45,7 +48,7 @@ public class Main {
 //		PersistTanque ptanq = new PersistTanque();
 //		ptanq.persistMock();
 //		
-//		PersistFornecimento pforc = new PersistFornecimento();3w
+//		PersistFornecimento pforc = new PersistFornecimento();
 //		pforc.persistMock();
 //		
 //		PersistCliente pcli = new PersistCliente();
@@ -53,11 +56,16 @@ public class Main {
 //		
 //		PersistFuncionario pfunc = new PersistFuncionario();
 //		pfunc.persistMock();
+//		
+//		PersistCombustivelCliente pcll = new PersistCombustivelCliente();
+//		pcll.persistMock();
 
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
 //		controllerFornecimento.Ranking();
 
-//		ControllerCombustivel_Cliente<Combustivel_Cliente> controllerCombustivel_Cliente = new ControllerCombustivel_Cliente<Combustivel_Cliente>();
-//		controllerCombustivel.maisVendido();
+		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
+		controllerCombustivelCliente.maisVendido();
+		
+		
 	}
 }

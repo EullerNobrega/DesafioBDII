@@ -15,6 +15,10 @@ public class Cliente extends Pessoa {
 		super(nome, cpf, cpnj);
 	}
 
+	public Cliente() {
+		super();
+	}
+
 	@OneToOne
 	private CartaoFidelidade cartao;
 

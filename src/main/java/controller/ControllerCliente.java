@@ -39,7 +39,7 @@ public class ControllerCliente<T extends AbstractEntity> {
 		return daoCliente.findAll();
 	}
 	
-	public  List<Cliente> ClientesFidelidade(){
+	public  List<Cliente> clientesFidelidade(){
 		Query createQuery = daoCliente.getEntityManager().createQuery("SELECT C FROM Cliente C WHERE cartao_id is not null");
 		List<Cliente> list = createQuery.getResultList();
 		System.out.println(list);

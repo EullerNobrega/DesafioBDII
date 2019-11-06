@@ -39,7 +39,7 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 		return daoFornecimento.findAll();
 	}
 
-	public List<Fornecimento> Ranking() {
+	public List<Fornecimento> rankingCombustivel() {
 
 		Query createQuery = daoFornecimento.getEntityManager()
 				.createQuery("SELECT f " + "FROM Fornecimento f " + "ORDER BY f.valor desc");
@@ -49,8 +49,37 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 		for (Fornecimento f : Fornecimento) {
 			System.out.println(f);
 		}
-		return null;
+		return Fornecimento;
 
 	}
+	
+	public Fornecimento qtdAbstecimentoHora() {
+		Query createQuery = daoFornecimento.getEntityManager().createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data");
+		
+//		 - INTERVAL 7 DAY GROUP BY(set_time, data)
+		List<Object[]> list = createQuery.getResultList();
+		
+		Fornecimento maior = new Fornecimento();
+		maior.setSomaLitros(0);
+		for(Object[] o : list) {
+			Fornecimento f = (Fornecimento) o[0];
+			f.setSomaLitros((double) o[1]);
+			System.out.println(f);
+			if(f.getSomaLitros() > maior.getSomaLitros()) {
+				maior = f;
+			}
+			
+		}
+		System.out.println("Maior ===" + maior);
+		return maior;
+		
+	}
+	
+//	QUANTIDADE DE ABASTECIMENTO POR HORA (HORÁRIO DE PICO)  NOS ÚLTIMOS 7 DIAS 
+//	SELECT MAX(SUM(lITRO)),HOUR(Datetime),data
+//	FROM Fornecimento F
+//	WHERE DATE(data) > (NOW() - INTERVAL 7 DAY)
+//	group by HOUR(set_time) , data
+
 
 }

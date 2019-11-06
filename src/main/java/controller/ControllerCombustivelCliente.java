@@ -8,6 +8,7 @@ import dao.DAOCombustivelCliente;
 import model.AbstractEntity;
 import model.Combustivel;
 import model.CombustivelCliente;
+import model.LucroValor;
 
 public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	private DAOCombustivelCliente daoCombustivelCliente;
@@ -68,11 +69,20 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		return maior;
 
 	}
-//	
-//	private boolean FindGasolina(CombustivelCliente comb) {
-//		for(CombustivelCliente c : listCQtd) {
-//			comb.
-//		}
-//	}
+	
+	public LucroValor lucroBrutoValorMedio() {
+		Query createQuery = daoCombustivelCliente.getEntityManager().createQuery("SELECT SUM(valorTotal), SUM(valorTotal)/SUM(litro) FROM "
+				+ "CombustivelCliente CL where data < current_date()");
+		List<Object[]> resultList = createQuery.getResultList();
+		
+		for(Object[] o : resultList) {
+			LucroValor lv = new LucroValor();
+			lv.setLucro((double) o[0]) ;
+			lv.setValorMedio((double) o[1]);
+			System.out.println(lv);
+		}
+		
+		return null;
+	}
 
 }

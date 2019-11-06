@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class CombustivelCliente extends AbstractEntity {
@@ -21,6 +22,11 @@ public class CombustivelCliente extends AbstractEntity {
 	private LocalDateTime data;
 	private Double litro;
 	private Double valorTotal;
+	
+	@Transient
+	private double lucro;
+	@Transient
+	private double valorMedio;
 
 	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, LocalDateTime data, Double litro,
 			Double valorTotal) {
@@ -82,14 +88,41 @@ public class CombustivelCliente extends AbstractEntity {
 		return valorTotal;
 	}
 
-	public void setValorTotao(Double valorTotao) {
-		this.valorTotal = valorTotao;
+	public void setValorTotao(Double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+	
+	
+
+	public Double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public double getLucro() {
+		return lucro;
+	}
+
+	public void setLucro(double lucro) {
+		this.lucro = lucro;
+	}
+
+	public double getValorMedio() {
+		return valorMedio;
+	}
+
+	public void setValorMedio(double valorMedio) {
+		this.valorMedio = valorMedio;
 	}
 
 	@Override
 	public String toString() {
-		return "CombustivelCliente [posto=" + posto + ", combustivel=" + combustivel + ", cliente=" + cliente
-				+ ", data=" + data + ", litro=" + litro + ", valorTotal=" + valorTotal + "]";
+		return "CombustivelCliente [posto=" + posto + ", \ncombustivel=" + combustivel + ", \ncliente=" + cliente
+				+ ", \ndata=" + data + ", \nlitro=" + litro + ", \nvalorTotal=" + valorTotal + ", \nlucro=" + lucro
+				+ ", \nvalorMedio=" + valorMedio + "]";
 	}
 
 }

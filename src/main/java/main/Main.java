@@ -1,20 +1,8 @@
 package main;
 
-import controller.ControllerCliente;
 import controller.ControllerCombustivelCliente;
-import model.Cliente;
 import model.CombustivelCliente;
-import util.PersistCartaoFidelidade;
-import util.PersistCliente;
-import util.PersistCombustivel;
-import util.PersistCombustivelCliente;
-import util.PersistEndereco;
-import util.PersistFornecedor;
-import util.PersistFornecimento;
-import util.PersistFuncionario;
-import util.PersistPosto;
-import util.PersistPreco;
-import util.PersistTanque;
+import model.LucroValor;
 
 //public class Main extends Application {
 //	public void start(Stage stage) {
@@ -72,15 +60,21 @@ public class Main {
 //
 //		PersistCombustivelCliente pcll = new PersistCombustivelCliente();
 //		pcll.persistMock();
-
+//
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
-//		controllerFornecimento.Ranking();
-
+//		controllerFornecimento.rankingCombustivel();
+//
 //		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
 //		controllerCombustivelCliente.maisVendido();
+//		
+//		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
+//		controllerCliente.clientesFidelidade();
 		
-		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
-		controllerCliente.ClientesFidelidade();
+//		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
+//		controllerFornecimento.qtdAbstecimentoHora();
+		
+		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
+		LucroValor lv = controllerCombustivelCliente.lucroBrutoValorMedio();
 
 	}
 }

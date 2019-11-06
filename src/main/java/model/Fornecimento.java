@@ -1,10 +1,11 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Fornecimento extends AbstractEntity {
@@ -22,10 +23,12 @@ public class Fornecimento extends AbstractEntity {
 	private Tanque tanque;
 	private Double valor;
 	private double litro;
-	private LocalDate data;
+	private LocalDateTime data;
+	@Transient
+	private double somaLitros;
 
 	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor,
-			double litro, LocalDate data) {
+			double litro, LocalDateTime data) {
 		super();
 		this.fornecedor = fornecedor;
 		this.combustivel = conbustivel;
@@ -86,18 +89,36 @@ public class Fornecimento extends AbstractEntity {
 		this.litro = litro;
 	}
 
-	public LocalDate getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
+	}
+	
+	
+
+	public Tanque getTanque() {
+		return tanque;
+	}
+
+	public void setTanque(Tanque tanque) {
+		this.tanque = tanque;
+	}
+
+	public double getSomaLitros() {
+		return somaLitros;
+	}
+
+	public void setSomaLitros(double somaLitros) {
+		this.somaLitros = somaLitros;
 	}
 
 	@Override
 	public String toString() {
-		return "Fornecimento [fornecedor=" + fornecedor + ", combustivel=" + combustivel + ", posto=" + posto
-				+ ", tanque=" + tanque + ", valor=" + valor + ", litro=" + litro + ", data=" + data + "]";
+		return "Fornecimento [fornecedor=" + fornecedor + ", \ncombustivel=" + combustivel + ", \nposto=" + posto
+				+ ", \ntanque=" + tanque + ", \nvalor=" + valor + ", \nlitro=" + litro + ",\ndata=" + data + "\nsomaLitro=" + somaLitros + "]\n\n\n";
 	}
 
 }

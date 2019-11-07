@@ -10,11 +10,13 @@ import controller.ControllerCombustivel;
 import controller.ControllerCombustivelCliente;
 import controller.ControllerPosto;
 import controller.ControllerPreco;
+import controller.ControllerTanque;
 import model.Cliente;
 import model.Combustivel;
 import model.CombustivelCliente;
 import model.Posto;
 import model.Preco;
+import model.Tanque;
 
 public class PersistCombustivelCliente implements persistEntity {
 	private ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
@@ -28,6 +30,13 @@ public class PersistCombustivelCliente implements persistEntity {
 		Combustivel c2 = selectCombustivel((long) 2);
 		Combustivel c3 = selectCombustivel((long) 3);
 		Combustivel c4 = selectCombustivel((long) 4);
+		Combustivel c5 = selectCombustivel((long) 5);
+		
+		Tanque t1 = selectTanque((long)1);
+		Tanque t2 = selectTanque((long)2);
+		Tanque t3 = selectTanque((long)3);
+		Tanque t4 = selectTanque((long)4);
+		Tanque t5 = selectTanque((long)5);
 
 		Cliente cl1 = selectCliente((long) 1);
 		Cliente cl2 = selectCliente((long) 2);
@@ -46,6 +55,7 @@ public class PersistCombustivelCliente implements persistEntity {
 		Cliente cl15 = selectCliente((long) 15);
 		Cliente cl16 = selectCliente((long) 16);
 		
+		
 		Preco p1 = selectPreco((long)1);
 		Preco p2 = selectPreco((long)3);
 		Preco p3 = selectPreco((long)4);
@@ -53,22 +63,22 @@ public class PersistCombustivelCliente implements persistEntity {
 		Preco p5 = selectPreco((long)2);
 		Preco p6 = selectPreco((long)6);
 
-		list.add(new CombustivelCliente(p, c1, cl1, LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 15.00, p1.getValor() * 15.0));
-		list.add(new CombustivelCliente(p, c2, cl2, LocalDateTime.of(2018, Month.JULY, 12, 11, 0), 10.0, p2.getValor() * 10.0));
-		list.add(new CombustivelCliente(p, c4, cl3, LocalDateTime.of(2018, Month.JUNE, 12, 10, 0), 9.0, p3.getValor() * 9.0));
-		list.add(new CombustivelCliente(p, c3, cl4, LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 11.0, p4.getValor() * 11.0));
-		list.add(new CombustivelCliente(p, c2, cl5, LocalDateTime.of(2018, Month.JUNE, 12, 18, 0), 12.0, p5.getValor()* 12.0));
-		list.add(new CombustivelCliente(p, c1, cl6, LocalDateTime.of(2018, Month.JULY, 12, 16, 0), 13.0, p6.getValor() * 13.0));
-		list.add(new CombustivelCliente(p, c4, cl7, LocalDateTime.of(2018, Month.JUNE, 12, 17, 0), 20.0, p2.getValor() * 20.0));
-		list.add(new CombustivelCliente(p, c3, cl8, LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 50.0, p4.getValor() * 50.0));
-		list.add(new CombustivelCliente(p, c1, cl9, LocalDateTime.of(2018, Month.JUNE, 12, 17, 0), 21.0, p6.getValor() * 21.0));
-		list.add(new CombustivelCliente(p, c4, cl10, LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 25.0, p1.getValor() * 25.0));
-		list.add(new CombustivelCliente(p, c1, cl11, LocalDateTime.of(2018, Month.AUGUST, 12, 17, 0), 2.0, p3.getValor() * 2.0));
-		list.add(new CombustivelCliente(p, c3, cl12, LocalDateTime.of(2018, Month.AUGUST, 12, 17, 0), 30.0, p5.getValor() * 30.0));
-		list.add(new CombustivelCliente(p, c2, cl13, LocalDateTime.of(2018, Month.AUGUST, 12, 19, 0), 12.0, p3.getValor() * 12.0));
-		list.add(new CombustivelCliente(p, c1, cl14, LocalDateTime.of(2018, Month.AUGUST, 12, 20, 0), 40.0, p2.getValor() * 40.0));
-		list.add(new CombustivelCliente(p, c2, cl15, LocalDateTime.of(2018, Month.AUGUST, 12, 21, 0), 20.0, p1.getValor() * 20.0));
-		list.add(new CombustivelCliente(p, c1, cl16, LocalDateTime.of(2018, Month.AUGUST, 12, 15, 0), 33.0, p4.getValor() * 33.0));
+		list.add(new CombustivelCliente(p, c1, cl1, t1,LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 15.00, p1.getValor() * 15.0));
+		list.add(new CombustivelCliente(p, c2, cl2, t2, LocalDateTime.of(2018, Month.JULY, 12, 11, 0), 10.0, p2.getValor() * 10.0));
+		list.add(new CombustivelCliente(p, c4, cl3, t4, LocalDateTime.of(2018, Month.JUNE, 12, 10, 0), 9.0, p3.getValor() * 9.0));
+		list.add(new CombustivelCliente(p, c3, cl4, t3,LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 11.0, p4.getValor() * 11.0));
+		list.add(new CombustivelCliente(p, c2, cl5, t2, LocalDateTime.of(2018, Month.JUNE, 12, 18, 0), 12.0, p5.getValor()* 12.0));
+		list.add(new CombustivelCliente(p, c1, cl6, t1,LocalDateTime.of(2018, Month.JULY, 12, 16, 0), 13.0, p6.getValor() * 13.0));
+		list.add(new CombustivelCliente(p, c4, cl7, t4, LocalDateTime.of(2018, Month.JUNE, 12, 17, 0), 20.0, p2.getValor() * 20.0));
+		list.add(new CombustivelCliente(p, c3, cl8, t3,LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 50.0, p4.getValor() * 50.0));
+		list.add(new CombustivelCliente(p, c1, cl9, t1,LocalDateTime.of(2018, Month.JUNE, 12, 17, 0), 21.0, p6.getValor() * 21.0));
+		list.add(new CombustivelCliente(p, c4, cl10, t4, LocalDateTime.of(2018, Month.JULY, 12, 17, 0), 25.0, p1.getValor() * 25.0));
+		list.add(new CombustivelCliente(p, c1, cl11, t1, LocalDateTime.of(2018, Month.AUGUST, 12, 17, 0), 2.0, p3.getValor() * 2.0));
+		list.add(new CombustivelCliente(p, c3, cl12, t3, LocalDateTime.of(2018, Month.AUGUST, 12, 17, 0), 30.0, p5.getValor() * 30.0));
+		list.add(new CombustivelCliente(p, c5, cl13, t5, LocalDateTime.of(2018, Month.AUGUST, 12, 19, 0), 12.0, p3.getValor() * 12.0));
+		list.add(new CombustivelCliente(p, c1, cl14, t1, LocalDateTime.of(2018, Month.AUGUST, 12, 20, 0), 40.0, p2.getValor() * 40.0));
+		list.add(new CombustivelCliente(p, c2, cl15, t2, LocalDateTime.of(2018, Month.AUGUST, 12, 21, 0), 20.0, p1.getValor() * 20.0));
+		list.add(new CombustivelCliente(p, c1, cl16, t1, LocalDateTime.of(2018, Month.AUGUST, 12, 15, 0), 33.0, p4.getValor() * 33.0));
 
 		for (CombustivelCliente cl : list) {
 			controllerCombustivelCliente.inserir(cl);
@@ -85,10 +95,16 @@ public class PersistCombustivelCliente implements persistEntity {
 		return controllerCombustivel.consultarPorId(id, Combustivel.class);
 	}
 
+	private Tanque selectTanque(Long id) {
+		ControllerTanque<Tanque> controllerTanque = new ControllerTanque<>();
+		return controllerTanque.consultarPorId(id, Tanque.class);
+	}
+ 
 	private Cliente selectCliente(Long id) {
 		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<Cliente>();
 		return controllerCliente.consultarPorId(id, Cliente.class);
 	}
+	
 	
 	private Preco selectPreco(Long id) {
 		ControllerPreco<Preco> controllerPreco = new ControllerPreco<Preco>();

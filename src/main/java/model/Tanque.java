@@ -47,4 +47,10 @@ public class Tanque extends AbstractEntity {
 		this.volumeAtual = volumeAtual;
 	}
 
+	@Override
+	public String toString() {
+		return "Tanque [combustivel=" + combustivel + ", volumeMax=" + volumeMax + ", volumeAtual=" + volumeAtual + "]";
+	}
+
+	
 }

@@ -46,6 +46,8 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		Combustivel c;
 
 	}
+	
+//	SELECTS
 
 	public Combustivel maisVendido() {
 		Query createQuery = daoCombustivelCliente.getEntityManager()
@@ -84,5 +86,17 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		
 		return null;
 	}
+	
+////	PROCEDURES
+//	
+//		public CombustivelCliente VendaAcumulada () {
+////			StoredProcedureParameter storedProcedureParameter = (StoredProcedureParameter) daoCombustivelCliente.
+////					getEntityManager().createStoredProcedureQuery("")
+////					.setParameter(0, new Object()).getResultList();
+//			
+//			
+//			return null;
+//		}
+//	
 
 }

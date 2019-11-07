@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
@@ -11,9 +12,11 @@ public class PostoCombustivel extends AbstractEntity {
 	private Posto posto;
 	@NotNull
 	@OneToOne
+	@JoinColumn(name = "combustivel")
 	private Combustivel combustivel;
 	@NotNull
 	@OneToOne
+	@JoinColumn(name = "cliente")
 	private Cliente cliente;
 	@NotNull
 	private float litros;

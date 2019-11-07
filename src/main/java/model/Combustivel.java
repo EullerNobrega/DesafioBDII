@@ -6,6 +6,7 @@ import javax.persistence.Transient;
 @Entity
 public class Combustivel extends AbstractEntity {
 	private String nomeCombustivel;
+
 	@Transient
 	private long totalVendas;
 
@@ -23,7 +24,7 @@ public class Combustivel extends AbstractEntity {
 	public Long getId() {
 		return super.getId();
 	}
-	
+
 	public String getNomeCombustivel() {
 		return nomeCombustivel;
 
@@ -32,7 +33,6 @@ public class Combustivel extends AbstractEntity {
 	public void setNomeCombustivel(String nomeCombustivel) {
 		this.nomeCombustivel = nomeCombustivel;
 	}
-
 
 	public long getTotalVendas() {
 		return totalVendas;
@@ -46,10 +46,5 @@ public class Combustivel extends AbstractEntity {
 	public String toString() {
 		return "Combustivel [nomeCombustivel=" + nomeCombustivel + ", totalVendas=" + totalVendas + "]";
 	}
-	
-	
-	
-	
 
-	
 }

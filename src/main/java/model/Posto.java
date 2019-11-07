@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
@@ -10,6 +11,7 @@ import br.com.caelum.stella.bean.validation.CNPJ;
 public class Posto extends AbstractEntity {
 	@OneToOne
 	@NotNull
+	@JoinColumn(name = "endereco")
 	private Endereco endereco;
 	private String razaoSocial;
 	private String nomeFantasia;

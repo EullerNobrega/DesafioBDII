@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.TreeSet;
 
 import javax.persistence.Query;
 
@@ -53,13 +54,17 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 
 	}
 	
-	public Fornecimento qtdAbstecimentoHora() {
+	public TreeSet<Fornecimento> qtdAbstecimentoHora() {
 		Query createQuery = daoFornecimento.getEntityManager().createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data");
 		
-//		 - INTERVAL 7 DAY GROUP BY(set_time, data)
 		List<Object[]> list = createQuery.getResultList();
-		
-		Fornecimento maior = new Fornecimento();
+		TreeSet<Fornecimento> ordenado = new TreeSet<Fornecimento>();
+		for (Object[] o : list) {
+			Fornecimento f = (Fornecimento) o[0];
+			f.setValor((Double) o[1]);
+			ordenado.add(f);
+		}
+		/*Fornecimento maior = new Fornecimento();
 		maior.setSomaLitros(0);
 		for(Object[] o : list) {
 			Fornecimento f = (Fornecimento) o[0];
@@ -69,17 +74,12 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 				maior = f;
 			}
 			
-		}
-		System.out.println("Maior ===" + maior);
-		return maior;
+		}*/
+		
+		System.out.println(ordenado);
+		return ordenado;
 		
 	}
 	
-//	QUANTIDADE DE ABASTECIMENTO POR HORA (HORÁRIO DE PICO)  NOS ÚLTIMOS 7 DIAS 
-//	SELECT MAX(SUM(lITRO)),HOUR(Datetime),data
-//	FROM Fornecimento F
-//	WHERE DATE(data) > (NOW() - INTERVAL 7 DAY)
-//	group by HOUR(set_time) , data
-
 
 }

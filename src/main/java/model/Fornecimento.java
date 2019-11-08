@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 @Entity
-public class Fornecimento extends AbstractEntity {
+public class Fornecimento extends AbstractEntity implements Comparable<Fornecimento> {
 	@ManyToOne
 	@JoinColumn(name = "fornecedor")
 	private Fornecedor fornecedor;
@@ -118,7 +118,17 @@ public class Fornecimento extends AbstractEntity {
 	@Override
 	public String toString() {
 		return "Fornecimento [fornecedor=" + fornecedor + ", \ncombustivel=" + combustivel + ", \nposto=" + posto
-				+ ", \ntanque=" + tanque + ", \nvalor=" + valor + ", \nlitro=" + litro + ",\ndata=" + data + "\nsomaLitro=" + somaLitros + "]\n\n\n";
+				+ ", \ntanque=" + tanque + ", \nvalor=" + valor + ", \nlitro=" + litro + ",\ndata=" + data + "\nsomaLitro=" + somaLitros + "]\n";
+	}
+
+	@Override
+	public int compareTo(Fornecimento o) {
+		if(this.somaLitros > o.getSomaLitros()) {
+			return 1;
+		}else if(this.somaLitros < o.getSomaLitros()) {
+			return -1;
+		}
+		return 0;
 	}
 
 }

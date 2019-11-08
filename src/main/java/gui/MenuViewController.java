@@ -3,6 +3,7 @@ package gui;
 import java.io.IOException;
 import java.util.function.Consumer;
 
+import controller.ControllerCliente;
 import controller.ControllerFornecimento;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.Cliente;
 import model.Fornecimento;
 import util.front.Alerts;
 public class MenuViewController {
@@ -28,8 +30,12 @@ public class MenuViewController {
 	@FXML
 	private MenuItem menuItemNivelCombustiveis;
 	
+	
 	@FXML
-	public void onMenuItemGastosMensais() {
+	private MenuItem menuItemClienteFidelidade;
+	
+	@FXML
+	public void onMenuItemRankingCombustive() {
 		
 		//loadView("/gui/GastosMensais.fxml", x->{});
 		
@@ -41,7 +47,7 @@ public class MenuViewController {
 	}
 	
 	@FXML
-	public void onMenuItemRankingCombustive() {
+	public void onMenuItemCombustivel() {
 		loadView("/gui/ganhosMensais.fxml", x->{});
 	}
 	
@@ -52,7 +58,17 @@ public class MenuViewController {
 	
 	@FXML
 	public void onMenuItemNivelCombustiveis() {
-		
+		loadView("/gui/CombustiveisGrafico.fxml", (CombustiveisGraficoController controller)->{
+			controller.setVariacaoPrecoCombustivel();
+		});
+	}
+	
+	@FXML
+	public void onMenuItemCartaoFidelidade() {
+		loadView("/gui/ClienteFidelidadeTable.fxml",(ClienteFidelidadeTableController controller)->{
+			controller.setControllerCliente(new ControllerCliente<Cliente>());
+			controller.updateTable();
+		});
 	}
 	
 	private synchronized <T> void loadView(String absoluteName, Consumer<T>initializingAction) {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="325.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteFidelidadeTableController">
+   <children>
+      <TableView fx:id="tableViewClienteFidelidade" prefHeight="327.0" prefWidth="466.0">
+        <columns>
+          <TableColumn fx:id="tableColumnCliente" prefWidth="75.0" text="Cliente" />
+          <TableColumn fx:id="tableColumnCartao" prefWidth="119.0" text="Cartão_Fidelidade" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

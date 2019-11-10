@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -54,7 +55,7 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 
 	}
 	
-	public TreeSet<Fornecimento> qtdAbstecimentoHora() {
+	public List<Fornecimento> qtdAbstecimentoHora() {
 		Query createQuery = daoFornecimento.getEntityManager().createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data");
 		
 		List<Object[]> list = createQuery.getResultList();
@@ -63,6 +64,10 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 			Fornecimento f = (Fornecimento) o[0];
 			f.setValor((Double) o[1]);
 			ordenado.add(f);
+		}
+		List<Fornecimento> rankingHoras = new ArrayList<Fornecimento>();
+		for (Fornecimento fornecimento : ordenado) {
+			rankingHoras.add(fornecimento);
 		}
 		/*Fornecimento maior = new Fornecimento();
 		maior.setSomaLitros(0);
@@ -77,7 +82,7 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 		}*/
 		
 		System.out.println(ordenado);
-		return ordenado;
+		return rankingHoras;
 		
 	}
 	

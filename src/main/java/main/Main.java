@@ -78,11 +78,11 @@ public class Main {
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
 //		controllerFornecimento.rankingCombustivel();
 
-//		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
+		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
 //		controllerCombustivelCliente.maisVendido();
-		
-		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
-		controllerCliente.clientesFidelidade();
+		controllerCombustivelCliente.VendaAcumulada("201806");
+//		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
+//		controllerCliente.clientesFidelidade();
 //		
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
 //		controllerFornecimento.qtdAbstecimentoHora();

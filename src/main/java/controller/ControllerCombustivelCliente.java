@@ -3,7 +3,6 @@ package controller;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.persistence.StoredProcedureParameter;
 
 import dao.DAOCombustivelCliente;
 import model.AbstractEntity;
@@ -47,7 +46,7 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		Combustivel c;
 
 	}
-	
+
 //	SELECTS
 
 	public Combustivel maisVendido() {
@@ -72,32 +71,37 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		return maior;
 
 	}
-	
+
 	public LucroValor lucroBrutoValorMedio() {
-		Query createQuery = daoCombustivelCliente.getEntityManager().createQuery("SELECT SUM(valorTotal), SUM(valorTotal)/SUM(litro) FROM "
-				+ "CombustivelCliente CL where data < current_date()");
+		Query createQuery = daoCombustivelCliente.getEntityManager()
+				.createQuery("SELECT SUM(valorTotal), SUM(valorTotal)/SUM(litro) FROM "
+						+ "CombustivelCliente CL where data < current_date()");
 		List<Object[]> resultList = createQuery.getResultList();
-		
-		for(Object[] o : resultList) {
+
+		for (Object[] o : resultList) {
 			LucroValor lv = new LucroValor();
-			lv.setLucro((double) o[0]) ;
+			lv.setLucro((double) o[0]);
 			lv.setValorMedio((double) o[1]);
 			System.out.println(lv);
 		}
-		
+
 		return null;
 	}
-	
+
 //	PROCEDURES
-	
-		public CombustivelCliente VendaAcumulada () {
-			StoredProcedureParameter storedProcedureParameter = (StoredProcedureParameter) daoCombustivelCliente.
-					getEntityManager().createStoredProcedureQuery("")
-					.setParameter(0, new Object()).getResultList();
-			
-			
-			return null;
+
+	public double VendaAcumulada(String anoMes) {
+		List<Object[]> vendasMes = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("call TotalVenda(:data_escolhida)").setParameter("data_escolhida", anoMes)
+				.getResultList();
+
+		double somaMes = 0;
+		for (Object[] o : vendasMes) {
+			somaMes += (double)o[0];
 		}
-	
+		
+		System.out.println(somaMes);
+		return somaMes;
+	}
 
 }

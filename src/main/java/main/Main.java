@@ -6,7 +6,6 @@ import controller.ControllerFornecimento;
 import model.Cliente;
 import model.CombustivelCliente;
 import model.Fornecimento;
-import model.LucroValor;
 import util.PersistCartaoFidelidade;
 import util.PersistCliente;
 import util.PersistCombustivel;
@@ -43,52 +42,52 @@ import util.PersistTanque;
 
 public class Main {
 	public static void main(String[] args) {
-		PersistEndereco pend = new PersistEndereco();
-		pend.persistMock();
+//		PersistEndereco pend = new PersistEndereco();
+//		pend.persistMock();
+//
+//		PersistPreco ppr = new PersistPreco();
+//		ppr.persistMock();
+//
+//		PersistPosto ppos = new PersistPosto();
+//		ppos.persistMock();
+//
+//		PersistCartaoFidelidade pcf = new PersistCartaoFidelidade();
+//		pcf.persistMock();
+//
+//		PersistCombustivel pcomb = new PersistCombustivel();
+//		pcomb.persistMock();
+//
+//		PersistFornecedor pfor = new PersistFornecedor();
+//		pfor.persistMock();
+//
+//		PersistTanque ptanq = new PersistTanque();
+//		ptanq.persistMock();
+//
+//		PersistFornecimento pforc = new PersistFornecimento();
+//		pforc.persistMock();
+//
+//		PersistCliente pcli = new PersistCliente();
+//		pcli.persistMock();
+//
+//		PersistFuncionario pfunc = new PersistFuncionario();
+//		pfunc.persistMock();
+//
+//		PersistCombustivelCliente pcll = new PersistCombustivelCliente();
+//		pcll.persistMock();
 
-		PersistPreco ppr = new PersistPreco();
-		ppr.persistMock();
+//		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
+//		controllerFornecimento.rankingCombustivel();
 
-		PersistPosto ppos = new PersistPosto();
-		ppos.persistMock();
-
-		PersistCartaoFidelidade pcf = new PersistCartaoFidelidade();
-		pcf.persistMock();
-
-		PersistCombustivel pcomb = new PersistCombustivel();
-		pcomb.persistMock();
-
-		PersistFornecedor pfor = new PersistFornecedor();
-		pfor.persistMock();
-
-		PersistTanque ptanq = new PersistTanque();
-		ptanq.persistMock();
-
-		PersistFornecimento pforc = new PersistFornecimento();
-		pforc.persistMock();
-
-		PersistCliente pcli = new PersistCliente();
-		pcli.persistMock();
-
-		PersistFuncionario pfunc = new PersistFuncionario();
-		pfunc.persistMock();
-
-		PersistCombustivelCliente pcll = new PersistCombustivelCliente();
-		pcll.persistMock();
-
-		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
-		controllerFornecimento.rankingCombustivel();
-
-		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
-		controllerCombustivelCliente.maisVendido();
+//		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
+//		controllerCombustivelCliente.maisVendido();
 		
 		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
 		controllerCliente.clientesFidelidade();
-		
+//		
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
 //		controllerFornecimento.qtdAbstecimentoHora();
 		
-		LucroValor lv = controllerCombustivelCliente.lucroBrutoValorMedio();
+//		LucroValor lv = controllerCombustivelCliente.lucroBrutoValorMedio();
 
 	}
 }

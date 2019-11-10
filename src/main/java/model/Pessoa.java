@@ -52,4 +52,11 @@ public Pessoa(String nome, String cpf, String cpnj) {
 		this.cpnj = cpnj;
 	}
 
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cpnj=" + cpnj + "]";
+	}
+	
+	
+
 }

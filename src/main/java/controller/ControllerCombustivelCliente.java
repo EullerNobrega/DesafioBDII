@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 
 import javax.persistence.Query;
+import javax.persistence.StoredProcedureParameter;
 
 import dao.DAOCombustivelCliente;
 import model.AbstractEntity;
@@ -87,16 +88,16 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		return null;
 	}
 	
-////	PROCEDURES
-//	
-//		public CombustivelCliente VendaAcumulada () {
-////			StoredProcedureParameter storedProcedureParameter = (StoredProcedureParameter) daoCombustivelCliente.
-////					getEntityManager().createStoredProcedureQuery("")
-////					.setParameter(0, new Object()).getResultList();
-//			
-//			
-//			return null;
-//		}
-//	
+//	PROCEDURES
+	
+		public CombustivelCliente VendaAcumulada () {
+			StoredProcedureParameter storedProcedureParameter = (StoredProcedureParameter) daoCombustivelCliente.
+					getEntityManager().createStoredProcedureQuery("")
+					.setParameter(0, new Object()).getResultList();
+			
+			
+			return null;
+		}
+	
 
 }

@@ -78,14 +78,16 @@ public class Main {
 //		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
 //		controllerFornecimento.rankingCombustivel();
 
-		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
+//		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
 //		controllerCombustivelCliente.maisVendido();
-		controllerCombustivelCliente.VendaAcumulada("201806");
+		
+//		controllerCombustivelCliente.VendaAcumulada("201806");
+		
 //		ControllerCliente<Cliente> controllerCliente = new ControllerCliente<>();
 //		controllerCliente.clientesFidelidade();
 //		
-//		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
-//		controllerFornecimento.qtdAbstecimentoHora();
+		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<Fornecimento>();
+		controllerFornecimento.rankingAbstecimentoHora();
 		
 //		LucroValor lv = controllerCombustivelCliente.lucroBrutoValorMedio();
 

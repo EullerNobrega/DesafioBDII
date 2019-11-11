@@ -55,34 +55,22 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 
 	}
 	
-	public List<Fornecimento> qtdAbstecimentoHora() {
-		Query createQuery = daoFornecimento.getEntityManager().createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data");
+	public List<Fornecimento> rankingAbstecimentoHora() {
+		Query createQuery = daoFornecimento.getEntityManager()
+				.createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data order by SUM(litro) asc");
 		
-		List<Object[]> list = createQuery.getResultList();
-		TreeSet<Fornecimento> ordenado = new TreeSet<Fornecimento>();
-		for (Object[] o : list) {
-			Fornecimento f = (Fornecimento) o[0];
-			f.setValor((Double) o[1]);
-			ordenado.add(f);
-		}
-		List<Fornecimento> rankingHoras = new ArrayList<Fornecimento>();
-		for (Fornecimento fornecimento : ordenado) {
-			rankingHoras.add(fornecimento);
-		}
-		/*Fornecimento maior = new Fornecimento();
-		maior.setSomaLitros(0);
-		for(Object[] o : list) {
-			Fornecimento f = (Fornecimento) o[0];
-			f.setSomaLitros((double) o[1]);
-			System.out.println(f);
-			if(f.getSomaLitros() > maior.getSomaLitros()) {
-				maior = f;
-			}
-			
-		}*/
+		List<Object[]> resultList = createQuery.getResultList();
+		List<Fornecimento> retorno = new ArrayList<Fornecimento>();
 		
-		System.out.println(ordenado);
-		return rankingHoras;
+		for (Object[] objects : resultList) {
+			Fornecimento f = (Fornecimento)objects[0];
+			f.setSomaLitros((double) objects[1]);
+			retorno.add(f);
+		}
+		
+		System.out.println(retorno);
+		
+		return retorno;
 		
 	}
 	

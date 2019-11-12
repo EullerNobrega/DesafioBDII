@@ -15,14 +15,19 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Faturamento">
                   <items>
-                    <MenuItem fx:id="menuItemGastosMensais" mnemonicParsing="false" onAction="#onMenuItemGastosMensais" text="Ranking Combustível" />
-                        <MenuItem mnemonicParsing="false" text="Ganhos Mensal" />
+                    <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Combustível" />
+                        <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível " />
+                        <MenuItem fx:id="menuItemClienteFidelidade" mnemonicParsing="false" onAction="#onMenuItemCartaoFidelidade" text="Cliente Fidelidade" />
+                        <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Quantidade de Abastecimento por hora" />
+                        <MenuItem fx:id="menuItemLucro" mnemonicParsing="false" onAction="#onMenuItemLucro" text="Lucro" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gráficos">
                   <items>
-                    <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustíveis" />
-                        <MenuItem mnemonicParsing="false" text="Níveis de Combustíveis" />
+                    <MenuItem mnemonicParsing="false" text="Combustíveis" />
+                        <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Variação preços Combustíveis" />
+                        <MenuItem fx:id="menuItemGraficoFornecedor" mnemonicParsing="false" onAction="#onMenuItemGraficoFornecedor" text="Fornecedores" />
+                        <MenuItem fx:id="menuItemAbastecimentoHoraGrafico" mnemonicParsing="false" onAction="#onMenuItemAbastecimentoHoraGrafico" text="Abastecimento por Hora" />
                   </items>
                 </Menu>
               </menus>

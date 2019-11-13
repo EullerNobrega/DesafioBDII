@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuViewController">
+   <content>
+      <VBox prefHeight="398.0" prefWidth="596.0" style="-fx-background-color: orange;">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Faturamento">
+                  <items>
+                    <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Combustível" />
+                        <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível " />
+                        <MenuItem fx:id="menuItemClienteFidelidade" mnemonicParsing="false" onAction="#onMenuItemCartaoFidelidade" text="Cliente Fidelidade" />
+                        <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Quantidade de Abastecimento por hora" />
+                        <MenuItem fx:id="menuItemLucro" mnemonicParsing="false" onAction="#onMenuItemLucro" text="Lucro" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Gráficos">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Combustíveis" />
+                        <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Variação preços Combustíveis" />
+                        <MenuItem fx:id="menuItemGraficoFornecedor" mnemonicParsing="false" onAction="#onMenuItemGraficoFornecedor" text="Fornecedores" />
+                        <MenuItem fx:id="menuItemAbastecimentoHoraGrafico" mnemonicParsing="false" onAction="#onMenuItemAbastecimentoHoraGrafico" text="Abastecimento por Hora" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </content>
+</ScrollPane>

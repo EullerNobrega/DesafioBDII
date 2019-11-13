@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="445.0" prefWidth="603.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GastosMensaisListController">
+   <children>
+      <TableView fx:id="tableViewGasto" prefHeight="381.0" prefWidth="553.0">
+        <columns>
+            <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="tableColumnDescricao" prefWidth="75.0" text="DESCRICAO" />
+          <TableColumn fx:id="tableColumnValor" prefWidth="75.0" text="VALOR" />
+          <TableColumn fx:id="tableColumnData" prefWidth="75.0" text="DATA_VENCIMENTO" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

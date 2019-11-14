@@ -34,7 +34,7 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 	}
 
 	public void consultarPorId(Fornecimento fornecimento) {
-//		daoFornecimento.getById(fornecimento.getId(), fornecimento.getClass());
+		daoFornecimento.getById(fornecimento.getId(), fornecimento.getClass());
 	}
 
 	public List<Fornecimento> consultarTodos() {

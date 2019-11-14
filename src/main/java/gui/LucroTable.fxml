@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="353.0" prefWidth="448.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="gui.LucroTableController">
+   <children>
+      <TableView fx:id="tableViewLucro" prefHeight="354.0" prefWidth="448.0">
+        <columns>
+          <TableColumn fx:id="columnLucro" prefWidth="135.0" text="Lucro" />
+          <TableColumn fx:id="columnValor" prefWidth="141.0" text="Valor Médio" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

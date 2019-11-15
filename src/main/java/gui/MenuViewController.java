@@ -48,6 +48,9 @@ public class MenuViewController {
 
 	@FXML
 	private MenuItem menuItemAbastecimentoHoraGrafico;
+	
+	@FXML
+	private MenuItem menuItemVendaAcumulada;
 
 	@FXML // ranking fornecedor
 	public void onMenuItemRankingCombustive() {
@@ -121,6 +124,11 @@ public class MenuViewController {
 		loadView("/gui/QtdAbastecimentoHoraGrafico.fxml", (QtdAbastecimentoHoraGraficoController controller)->{
 			controller.setQtdAbastecimentoHora();
 		});
+	}
+	
+	@FXML
+	public void onMenuItemVendaAcumulada() {
+		loadView("VendaAcumuladaView.fxml",x->{});
 	}
 	
 	

@@ -74,15 +74,33 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		Query createQuery = daoCombustivelCliente.getEntityManager().createQuery("SELECT SUM(valorTotal), SUM(valorTotal)/SUM(litro) FROM "
 				+ "CombustivelCliente CL where data < current_date()");
 		List<Object[]> resultList = createQuery.getResultList();
-		
+		LucroValor lv = null;
 		for(Object[] o : resultList) {
-			LucroValor lv = new LucroValor();
+			 lv = new LucroValor();
 			lv.setLucro((double) o[0]) ;
 			lv.setValorMedio((double) o[1]);
 			System.out.println(lv);
 		}
 		
-		return null;
+		return lv;
+	}
+	
+	
+//	PROCEDURES
+
+	public double VendaAcumulada(String anoMes) {
+		List<Object[]> vendasMes = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("call TotalVenda(:data_escolhida)").setParameter("data_escolhida", anoMes)
+				.getResultList();
+	
+		double somaMes = 0;
+		for (Object[] o : vendasMes) {
+		
+			somaMes += (double)o[0];
+		}
+		
+		System.out.println(somaMes);
+		return somaMes;
 	}
 
 }

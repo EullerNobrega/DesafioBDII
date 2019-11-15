@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -53,25 +54,22 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 
 	}
 	
-	public Fornecimento qtdAbstecimentoHora() {
-		Query createQuery = daoFornecimento.getEntityManager().createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data");
+	public List<Fornecimento> rankingAbstecimentoHora() {
+		Query createQuery = daoFornecimento.getEntityManager()
+				.createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data order by SUM(litro) asc");
 		
-//		 - INTERVAL 7 DAY GROUP BY(set_time, data)
-		List<Object[]> list = createQuery.getResultList();
+		List<Object[]> resultList = createQuery.getResultList();
+		List<Fornecimento> retorno = new ArrayList<Fornecimento>();
 		
-		Fornecimento maior = new Fornecimento();
-		maior.setSomaLitros(0);
-		for(Object[] o : list) {
-			Fornecimento f = (Fornecimento) o[0];
-			f.setSomaLitros((double) o[1]);
-			System.out.println(f);
-			if(f.getSomaLitros() > maior.getSomaLitros()) {
-				maior = f;
-			}
-			
+		for (Object[] objects : resultList) {
+			Fornecimento f = (Fornecimento)objects[0];
+			f.setSomaLitros((double) objects[1]);
+			retorno.add(f);
 		}
-		System.out.println("Maior ===" + maior);
-		return maior;
+		
+		System.out.println(retorno);
+		
+		return retorno;
 		
 	}
 	

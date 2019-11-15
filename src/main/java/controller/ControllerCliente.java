@@ -1,9 +1,7 @@
 package controller;
 
 import java.util.List;
-
 import javax.persistence.Query;
-
 import dao.DAOCliente;
 import model.AbstractEntity;
 import model.Cliente;

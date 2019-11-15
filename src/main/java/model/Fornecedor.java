@@ -3,7 +3,6 @@ package model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
@@ -29,52 +28,5 @@ public class Fornecedor extends AbstractEntity {
 	public Fornecedor() {
 		super();
 	}
-
-//	Getters & Setters
-	
-	public Long getId() {
-		return super.getId();
-	}
-
-	public String getRazaoSocial() {
-		return razaoSocial;
-	}
-
-
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
-	}
-
-	public String getNomeFantasia() {
-		return nomeFantasia;
-	}
-
-	public void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
-	}
-
-	public String getCNPJ() {
-		return CNPJ;
-	}
-
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
-	}
-
-	public List<Combustivel> getCombustiveis() {
-		return combustiveis;
-	}
-
-	public void setCombustiveis(List<Combustivel> combustiveis) {
-		this.combustiveis = combustiveis;
-	}
-
-	@Override
-	public String toString() {
-		return "Fornecedor [razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", CNPJ=" + CNPJ
-				+ ", combustiveis=" + combustiveis + "]";
-	}
-	
-	
 
 }

@@ -15,19 +15,4 @@ public class CartaoFidelidade extends AbstractEntity {
 		super();
 	}
 
-//	Getters & Setters
-
-	public String getNumeroCartao() {
-		return numeroCartao;
-	}
-
-	public void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-
-	@Override
-	public String toString() {
-		return "CartaoFidelidade [numeroCartao=" + numeroCartao + "]";
-	}
-
 }

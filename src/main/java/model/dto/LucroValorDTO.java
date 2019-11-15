@@ -1,10 +1,16 @@
-package model;
+package model.dto;
 
-public class LucroValor {
+public class LucroValorDTO {
+	private String data;
 	private double lucro;
 	private double valorMedio;
 	
-	
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
 	public double getLucro() {
 		return lucro;
 	}
@@ -17,10 +23,5 @@ public class LucroValor {
 	public void setValorMedio(double valorMedio) {
 		this.valorMedio = valorMedio;
 	}
-	@Override
-	public String toString() {
-		return "LucroValor [lucro=" + lucro + ", valorMedio=" + valorMedio + "]";
-	}
-	
 	
 }

@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 @Entity
-public class Fornecimento extends AbstractEntity implements Comparable<Fornecimento> {
+public class Fornecimento extends AbstractEntity{
 	@ManyToOne
 	@JoinColumn(name = "fornecedor")
 	private Fornecedor fornecedor;
@@ -24,8 +24,6 @@ public class Fornecimento extends AbstractEntity implements Comparable<Fornecime
 	private Double valor;
 	private double litro;
 	private LocalDateTime data;
-	@Transient
-	private double somaLitros;
 
 	public Fornecimento(Fornecedor fornecedor, Combustivel conbustivel, Posto posto, Tanque tanque, Double valor,
 			double litro, LocalDateTime data) {
@@ -41,94 +39,6 @@ public class Fornecimento extends AbstractEntity implements Comparable<Fornecime
 
 	public Fornecimento() {
 		super();
-	}
-
-//	Getters & Setters
-
-	public Long getId() {
-		return super.getId();
-	}
-
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
-	public Combustivel getCombustivel() {
-		return combustivel;
-	}
-
-	public void setCombustivel(Combustivel combustivel) {
-		this.combustivel = combustivel;
-	}
-
-	public Posto getPosto() {
-		return posto;
-	}
-
-	public void setPosto(Posto posto) {
-		this.posto = posto;
-	}
-
-	public Double getValor() {
-		return valor;
-	}
-
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
-
-	public double getLitro() {
-		return litro;
-	}
-
-	public void setLitro(double litro) {
-		this.litro = litro;
-	}
-
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-	
-	
-
-	public Tanque getTanque() {
-		return tanque;
-	}
-
-	public void setTanque(Tanque tanque) {
-		this.tanque = tanque;
-	}
-
-	public double getSomaLitros() {
-		return somaLitros;
-	}
-
-	public void setSomaLitros(double somaLitros) {
-		this.somaLitros = somaLitros;
-	}
-
-	@Override
-	public String toString() {
-		return "Fornecimento [fornecedor=" + fornecedor + ", \ncombustivel=" + combustivel + ", \nposto=" + posto
-				+ ", \ntanque=" + tanque + ", \nvalor=" + valor + ", \nlitro=" + litro + ",\ndata=" + data + "\nsomaLitro=" + somaLitros + "]\n";
-	}
-
-	@Override
-	public int compareTo(Fornecimento o) {
-		if(this.somaLitros > o.getSomaLitros()) {
-			return 1;
-		}else if(this.somaLitros < o.getSomaLitros()) {
-			return -1;
-		}
-		return 0;
 	}
 
 }

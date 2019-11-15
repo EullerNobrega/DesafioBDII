@@ -25,14 +25,9 @@ public class CombustivelCliente extends AbstractEntity {
 	private LocalDateTime data;
 	private Double litro;
 	private Double valorTotal;
-	
-	@Transient
-	private double lucro;
-	@Transient
-	private double valorMedio;
 
-	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data, Double litro,
-			Double valorTotal) {
+	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data,
+			Double litro, Double valorTotal) {
 		super();
 		this.posto = posto;
 		this.combustivel = combustivel;
@@ -44,98 +39,6 @@ public class CombustivelCliente extends AbstractEntity {
 	}
 
 	public CombustivelCliente() {
-
-	}
-//	Getters & Setters
-
-	public Posto getPosto() {
-		return posto;
-	}
-
-	public void setPosto(Posto posto) {
-		this.posto = posto;
-	}
-
-	public Combustivel getCombustivel() {
-		return combustivel;
-	}
-
-	public void setCombustivel(Combustivel combustivel) {
-		this.combustivel = combustivel;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-
-	public Double getLitro() {
-		return litro;
-	}
-
-	public void setLitro(Double litro) {
-		this.litro = litro;
-	}
-
-	public Double getValorTotao() {
-		return valorTotal;
-	}
-
-	public void setValorTotao(Double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-	
-	
-
-	public Double getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
-	public double getLucro() {
-		return lucro;
-	}
-
-	public void setLucro(double lucro) {
-		this.lucro = lucro;
-	}
-
-	public double getValorMedio() {
-		return valorMedio;
-	}
-
-	public void setValorMedio(double valorMedio) {
-		this.valorMedio = valorMedio;
-	}
-	
-	
-	public Tanque getTanque() {
-		return tanque;
-	}
-
-	public void setTanque(Tanque tanque) {
-		this.tanque = tanque;
-	}
-
-	@Override
-	public String toString() {
-		return "CombustivelCliente [posto=" + posto + ", \ncombustivel=" + combustivel + ", \ncliente=" + cliente
-				+ "/ntanque=" + tanque + ", \ndata=" + data + ", \nlitro=" + litro + ", \nvalorTotal=" + valorTotal + ", \nlucro=" + lucro
-				+ ", \nvalorMedio=" + valorMedio + "]";
 	}
 
 }

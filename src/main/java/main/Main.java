@@ -6,6 +6,7 @@ import controller.ControllerFornecimento;
 import model.Cliente;
 import model.CombustivelCliente;
 import model.Fornecimento;
+import util.PersistAll;
 
 public class Main {
 	public static void main(String[] args) {
@@ -19,6 +20,7 @@ public class Main {
 //		controllerCombustivelCliente.lucroBrutoValorMedioPorMes(); --- OK
 //		controllerFornecimento.rankingFornecedorMaisBarato(); --- OK
 //		controllerCombustivelCliente.combustiveisMaisVendidos(); --- OK
+		controllerCombustivelCliente.horarioPicoQtdAbastecimento();
 
 		// Procedures
 //		controllerCombustivelCliente.rankingTotalValorCombustivel("201807"); --- OK

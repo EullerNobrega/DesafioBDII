@@ -1,6 +1,7 @@
 package controller;
 
 import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,10 +48,9 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 
 	public List<CombustivelDTO> combustiveisMaisVendidos() {
 		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
-				.createNativeQuery("select c.nomeCombustivel, count(c.id) QtdVendas from combustivelcliente ccl " + 
-						"inner join combustivel c " + 
-						"on ccl.combustivel = c.id " + 
-						"group by c.nomeCombustivel;").getResultList();
+				.createNativeQuery("select c.nomeCombustivel, count(c.id) QtdVendas from combustivelcliente ccl "
+						+ "inner join combustivel c " + "on ccl.combustivel = c.id " + "group by c.nomeCombustivel;")
+				.getResultList();
 		List<CombustivelDTO> list = new ArrayList<>();
 		for (Object[] obj : resultList) {
 			CombustivelDTO c = new CombustivelDTO();
@@ -80,9 +80,28 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 
 		return lista;
 	}
-	
-	public HorarioPicoDTO horarioPicoQtdAbastecimento() {
+
+	public List<HorarioPicoDTO> horarioPicoQtdAbastecimento() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("SELECT sum(litro) as QtdCombustivel, data as Pico, c.nomeCombustivel\r\n"
+						+ "FROM Fornecimento F " + "inner join combustivel c " + "on f.combustivel = c.id "
+						+ "WHERE DATE(data) " + "group by  data " + "order by sum(litro) desc;")
+				.getResultList();
+
+		List<HorarioPicoDTO> list = new ArrayList<>();
+
+		for (Object[] obj : resultList) {
+			HorarioPicoDTO h = new HorarioPicoDTO();
+			h.setQtdGasolina((double) obj[0]);
+			h.setDataPico( (Timestamp) obj[1]);
+			h.setNomeCombustivel((String) obj[2]);
+			list.add(h);
+		}
 		
+		System.out.println(list);
+
+		return list;
+
 	}
 
 //	PROCEDURES
@@ -102,7 +121,6 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 			tvc.setData((String) obj[2]);
 			lista.add(tvc);
 		}
-		
 
 		return lista;
 	}

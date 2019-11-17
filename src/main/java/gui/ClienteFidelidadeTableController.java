@@ -1,13 +1,9 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import controller.ControllerCliente;
 import controller.ControllerCombustivelCliente;
-import gui.data.TabelaClienteFidelidade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Cliente;
 import model.CombustivelCliente;
 import model.dto.ClienteFidelidadeDTO;
 

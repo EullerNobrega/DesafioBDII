@@ -1,8 +1,7 @@
 package gui;
 
+import java.math.BigInteger;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import controller.ControllerCombustivelCliente;
@@ -13,55 +12,49 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Combustivel;
 import model.CombustivelCliente;
+import model.dto.CombustivelDTO;
 
 public class CombustivelMaisVendidoController implements Initializable {
 	
-	
+	@FXML
+	private TableView<CombustivelDTO> tableCombustivel;
 	
 	@FXML
-	private TableView<Combustivel> tableViewCombustive;
+	private TableColumn<CombustivelDTO, String> tableColumnNome;
 	
 	@FXML
-	private TableColumn<Combustivel, String> columnNomeCombustivel;
+	private TableColumn<CombustivelDTO, BigInteger> tableColumnTotalVendas;
 	
-	@FXML
-	private TableColumn<Combustivel, Long> columnNomeTotalVendas;
-
-	private ObservableList<Combustivel> obsList;
 	private ControllerCombustivelCliente<CombustivelCliente> service;
+	
+	@FXML
+	private ObservableList<CombustivelDTO> obsList;
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initializeNodes();
+		
 	}
 	
-	private void initializeNodes() {
-		columnNomeCombustivel.setCellValueFactory(new PropertyValueFactory<>("nomeCombustivel"));
-		columnNomeTotalVendas.setCellValueFactory(new PropertyValueFactory<>("totalVendas"));
-		
+	public void initializeNodes() {
+		tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nomeCombustivel"));
+		tableColumnTotalVendas.setCellValueFactory(new PropertyValueFactory<>("qtdVendas"));
 	}
 	
 	public void setControllerCombustivelCliente(ControllerCombustivelCliente<CombustivelCliente> service) {
 		this.service = service;
 	}
 	
-	public void updateTable() {
+	public void updateList() {
 		if(service == null) {
 			throw new IllegalStateException("Combustivel was null");
 		}
 		
-		obsList = FXCollections.observableArrayList(setList());
-		tableViewCombustive.setItems(obsList);
+		obsList = FXCollections.observableArrayList(service.combustiveisMaisVendidos());
+		tableCombustivel.setItems(obsList);
 	}
-	
-	private List<Combustivel> setList(){
-		List<Combustivel> l = new ArrayList<>();
-		l.add(service.maisVendido());
-		System.out.println(l);
-		return l;
-	}
-	
+
 	
 }

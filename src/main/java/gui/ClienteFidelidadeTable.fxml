@@ -6,10 +6,12 @@
 
 <VBox prefHeight="325.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteFidelidadeTableController">
    <children>
-      <TableView fx:id="tableViewClienteFidelidade" prefHeight="327.0" prefWidth="466.0">
+      <TableView fx:id="tableViewClienteFidelidade" prefHeight="465.0" prefWidth="466.0">
         <columns>
           <TableColumn fx:id="tableColumnCliente" prefWidth="75.0" text="Cliente" />
+            <TableColumn fx:id="tableColumnCPF" prefWidth="75.0" text="CPF" />
           <TableColumn fx:id="tableColumnCartao" prefWidth="119.0" text="Cartão_Fidelidade" />
+            <TableColumn fx:id="tableColumnConsumo" prefWidth="113.0" text="Consumo_Total" />
         </columns>
       </TableView>
    </children>

@@ -20,7 +20,8 @@ public class Main {
 //		controllerCombustivelCliente.lucroBrutoValorMedioPorMes(); --- OK
 //		controllerFornecimento.rankingFornecedorMaisBarato(); --- OK
 //		controllerCombustivelCliente.combustiveisMaisVendidos(); --- OK
-		controllerCombustivelCliente.horarioPicoQtdAbastecimento();
+//		controllerCombustivelCliente.horarioPicoQtdAbastecimento(); --- OK
+//		controllerCombustivelCliente.consumoClienteFidelidade(); --- OK
 
 		// Procedures
 //		controllerCombustivelCliente.rankingTotalValorCombustivel("201807"); --- OK

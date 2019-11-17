@@ -8,6 +8,7 @@ import java.util.List;
 import dao.DAOCombustivelCliente;
 import model.AbstractEntity;
 import model.CombustivelCliente;
+import model.dto.ClienteFidelidadeDTO;
 import model.dto.CombustivelDTO;
 import model.dto.HorarioPicoDTO;
 import model.dto.LucroValorDTO;
@@ -83,7 +84,7 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 
 	public List<HorarioPicoDTO> horarioPicoQtdAbastecimento() {
 		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
-				.createNativeQuery("SELECT sum(litro) as QtdCombustivel, data as Pico, c.nomeCombustivel\r\n"
+				.createNativeQuery("SELECT sum(litro) as QtdCombustivel, data as Pico, c.nomeCombustivel "
 						+ "FROM Fornecimento F " + "inner join combustivel c " + "on f.combustivel = c.id "
 						+ "WHERE DATE(data) " + "group by  data " + "order by sum(litro) desc;")
 				.getResultList();
@@ -102,6 +103,34 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 
 		return list;
 
+	}
+	
+	
+	public List<ClienteFidelidadeDTO> consumoClienteFidelidade() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("select c.nome, c.cpf, cf.numeroCartao, truncate((clc.valorTotal),2) as Compras_total " + 
+				"from cliente c " + 
+				"inner join combustivelcliente clc " + 
+				"on c.id = clc.cliente " + 
+				"inner join cartaofidelidade cf " + 
+				"on c.cartao = cf.id " + 
+				"group by cliente " + 
+				"order by truncate((clc.valorTotal),2) desc;").getResultList();
+		
+		List<ClienteFidelidadeDTO> list = new ArrayList<>();
+		
+		for (Object[] obj : resultList) {
+			ClienteFidelidadeDTO clf = new ClienteFidelidadeDTO();
+			clf.setNomeCliente((String) obj[0]);
+			clf.setCpfCliente((String) obj[1]);
+			clf.setNumeroCartao((String) obj[2]);
+			clf.setConsumo((double) obj[3]);
+			list.add(clf);
+		}
+		
+		System.out.println(list);
+		return list;
+		
 	}
 
 //	PROCEDURES

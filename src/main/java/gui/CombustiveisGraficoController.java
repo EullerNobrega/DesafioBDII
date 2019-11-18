@@ -12,11 +12,11 @@ import javafx.scene.chart.XYChart;
 public class CombustiveisGraficoController {
 
 	@FXML
-	private BarChart<String, Double> barChart;
+	private BarChart<String, Integer> barChart;
 	@FXML
 	private CategoryAxis xAxis;
 	
-	private ObservableList<String> combustivel = FXCollections.observableArrayList(Arrays.asList("Gasolina Comun","Gasolina aditivada","Etanol","Diesel"));
+	private ObservableList<String> combustivel = FXCollections.observableArrayList(Arrays.asList("Gasolina Comun","Gasolina aditivada","Etanol","Diesel","GNV"));
 	
 	
 	
@@ -26,32 +26,21 @@ public class CombustiveisGraficoController {
 	}
 	
 	public void setVariacaoPrecoCombustivel() {
-		XYChart.Series<String, Double> series = new XYChart.Series<>();
+		XYChart.Series<String, Integer> series = new XYChart.Series<>();
 		
-		series.getData().add(new XYChart.Data<>(combustivel.get(0),4.399));
-		series.getData().add(new XYChart.Data<>(combustivel.get(0),4.999));
-		series.getData().add(new XYChart.Data<>(combustivel.get(0),5.00));
-		series.getData().add(new XYChart.Data<>(combustivel.get(0),3.999));
-		series.getData().add(new XYChart.Data<>(combustivel.get(0),3.954));
+		series.getData().add(new XYChart.Data<>(combustivel.get(0),6));
 		
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),4.741));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),4.789));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),4.898));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),5.000));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),5.020));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),4.399));
-		series.getData().add(new XYChart.Data<>(combustivel.get(1),4.989));
 		
-		series.getData().add(new XYChart.Data<>(combustivel.get(2),1.598));
-		series.getData().add(new XYChart.Data<>(combustivel.get(2),2.399));
-		series.getData().add(new XYChart.Data<>(combustivel.get(2),3.490));
-		series.getData().add(new XYChart.Data<>(combustivel.get(2),1.899));
+		series.getData().add(new XYChart.Data<>(combustivel.get(1),3));
 		
-		series.getData().add(new XYChart.Data<>(combustivel.get(3),2.099));
-		series.getData().add(new XYChart.Data<>(combustivel.get(3),2.209));
-		series.getData().add(new XYChart.Data<>(combustivel.get(3),3.000));
-		series.getData().add(new XYChart.Data<>(combustivel.get(3),2.499));
-		series.getData().add(new XYChart.Data<>(combustivel.get(3),2.490));
+		
+		series.getData().add(new XYChart.Data<>(combustivel.get(2),3));
+		
+		
+		series.getData().add(new XYChart.Data<>(combustivel.get(3),1));
+		
+		series.getData().add(new XYChart.Data<>(combustivel.get(4),3));
+		
 		
 		barChart.getData().add(series);
 	}

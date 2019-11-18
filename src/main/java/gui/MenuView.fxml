@@ -25,8 +25,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gráficos">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Combustíveis" />
-                        <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Variação preços Combustíveis" />
+                    <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Combustíveis mais Vendidos" />
                         <MenuItem fx:id="menuItemGraficoFornecedor" mnemonicParsing="false" onAction="#onMenuItemGraficoFornecedor" text="Fornecedores" />
                         <MenuItem fx:id="menuItemAbastecimentoHoraGrafico" mnemonicParsing="false" onAction="#onMenuItemAbastecimentoHoraGrafico" text="Abastecimento por Hora" />
                   </items>

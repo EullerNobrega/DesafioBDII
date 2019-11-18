@@ -13,13 +13,13 @@ public class Pessoa extends AbstractEntity {
 	@CPF
 	private String cpf;
 	@CNPJ
-	private String cpnj;
+	private String cnpj;
 
-	public Pessoa(String nome, String cpf, String cpnj) {
+	public Pessoa(String nome, String cpf, String cnpj) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.cpnj = cpnj;
+		this.cnpj = cnpj;
 	}
 
 	public Pessoa() {

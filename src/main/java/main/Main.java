@@ -10,7 +10,7 @@ import util.PersistAll;
 
 public class Main {
 	public static void main(String[] args) {
-//		PersistAll all = new PersistAll(); // A instancia dessa classe mocka o banco, caso tenha, comente essa linha
+		PersistAll all = new PersistAll(); // A instancia dessa classe mocka o banco, caso tenha, comente essa linha
 		
 		ControllerFornecimento<Fornecimento> controllerFornecimento = new ControllerFornecimento<>();
 		ControllerCombustivelCliente<CombustivelCliente> controllerCombustivelCliente = new ControllerCombustivelCliente<CombustivelCliente>();
@@ -21,7 +21,7 @@ public class Main {
 //		controllerFornecimento.rankingFornecedorMaisBarato(); --- OK
 //		controllerCombustivelCliente.combustiveisMaisVendidos(); --- OK
 //		controllerCombustivelCliente.horarioPicoQtdAbastecimento(); --- OK
-//		controllerCombustivelCliente.consumoClienteFidelidade(); --- OK
+		controllerCombustivelCliente.consumoClienteFidelidade(); 
 
 		// Procedures
 //		controllerCombustivelCliente.rankingTotalValorCombustivel("201807"); --- OK

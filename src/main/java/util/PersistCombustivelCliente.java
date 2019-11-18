@@ -50,10 +50,10 @@ public class PersistCombustivelCliente implements persistEntity {
 		Cliente cl10 = selectCliente((long) 10);
 		Cliente cl11 = selectCliente((long) 11);
 		Cliente cl12 = selectCliente((long) 12);
-		Cliente cl13 = selectCliente((long) 13);
-		Cliente cl14 = selectCliente((long) 14);
-		Cliente cl15 = selectCliente((long) 15);
-		Cliente cl16 = selectCliente((long) 16);
+		Cliente cl13 = selectCliente((long) 17);
+		Cliente cl14 = selectCliente((long) 19);
+		Cliente cl15 = selectCliente((long) 22);
+		Cliente cl16 = selectCliente((long) 25);
 		
 		
 		Preco p1 = selectPreco((long)1);

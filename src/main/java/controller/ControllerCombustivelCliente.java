@@ -108,7 +108,7 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	
 	public List<ClienteFidelidadeDTO> consumoClienteFidelidade() {
 		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
-				.createNativeQuery("select c.nome, c.cpf, cf.numeroCartao, truncate((clc.valorTotal),2) as Compras_total " + 
+				.createNativeQuery("select c.nome, c.cpf, c.cnpj, cf.numeroCartao, truncate((clc.valorTotal),2) as Compras_total " + 
 				"from cliente c " + 
 				"inner join combustivelcliente clc " + 
 				"on c.id = clc.cliente " + 
@@ -123,8 +123,9 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 			ClienteFidelidadeDTO clf = new ClienteFidelidadeDTO();
 			clf.setNomeCliente((String) obj[0]);
 			clf.setCpfCliente((String) obj[1]);
-			clf.setNumeroCartao((String) obj[2]);
-			clf.setConsumo((double) obj[3]);
+			clf.setCnpjCliente((String) obj[2]);
+			clf.setNumeroCartao((String) obj[3]);
+			clf.setConsumo((double) obj[4]);
 			list.add(clf);
 		}
 		

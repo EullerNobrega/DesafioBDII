@@ -3,6 +3,7 @@ package model.dto;
 public class ClienteFidelidadeDTO {
 	private String nomeCliente;
 	private String cpfCliente;
+	private String cnpjCliente;
 	private String numeroCartao;
 	private double consumo;
 
@@ -36,6 +37,14 @@ public class ClienteFidelidadeDTO {
 
 	public void setConsumo(double consumo) {
 		this.consumo = consumo;
+	}
+
+	public String getCnpjCliente() {
+		return cnpjCliente;
+	}
+
+	public void setCnpjCliente(String cnpjCliente) {
+		this.cnpjCliente = cnpjCliente;
 	}
 
 }

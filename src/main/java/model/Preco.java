@@ -17,4 +17,9 @@ public class Preco extends AbstractEntity {
 		super();
 	}
 
+	public Double getValor() {
+		return valor;
+	}
+	
+
 }

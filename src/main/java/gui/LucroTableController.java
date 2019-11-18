@@ -54,15 +54,8 @@ public class LucroTableController  implements Initializable{
 			throw new IllegalStateException("Cliente Fidelidade was null");
 		}
 
-		obsList = FXCollections.observableArrayList(setListLucro());
+		obsList = FXCollections.observableArrayList(service.lucroBrutoValorMedioPorMes());
 		tableViewLucro.setItems(obsList);
 	}
 	
-	private List<LucroValorDTO> setListLucro(){
-		LucroValorDTO aux = service.lucroBrutoValorMedio();
-		List<LucroValorDTO> l = new ArrayList<>();
-		System.out.println(aux);
-		l.add(aux);
-		return l;
-	}
 }

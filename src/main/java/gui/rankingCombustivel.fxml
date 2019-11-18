@@ -8,13 +8,9 @@
    <children>
       <TableView fx:id="tableViewRanking" prefHeight="444.0" prefWidth="577.0">
         <columns>
-          <TableColumn fx:id="tableColumnFonecedor" prefWidth="75.0" text="Fornecedor" />
-          <TableColumn fx:id="tableColumnCombustivel" prefWidth="75.0" text="Combustivel" />
-            <TableColumn fx:id="tableColumnPosto" prefWidth="75.0" text="Posto" />
-            <TableColumn fx:id="tableColumnTanque" prefWidth="75.0" text="Tanque" />
-            <TableColumn fx:id="tableColumnValor" prefWidth="75.0" text="Valor" />
-            <TableColumn fx:id="tableColumnLitro" prefWidth="75.0" text="Litro" />
-            <TableColumn fx:id="tableColumnData" prefWidth="75.0" text="Data" />
+          <TableColumn fx:id="tableColumnFonecedorNome" prefWidth="83.0" text="Fornecedor" />
+          <TableColumn fx:id="tableColumnCombustivelValor" prefWidth="85.0" text="Valor" />
+            <TableColumn fx:id="tableColumnData" prefWidth="78.0" text="Data" />
         </columns>
       </TableView>
    </children>

@@ -1,13 +1,9 @@
 package gui;
 
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import controller.ControllerFornecimento;
-import gui.data.TabelaRankingFornecedores;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Fornecimento;
+import model.dto.FornecedorDTO;
 
 public class RankingCombustivelController implements Initializable{
 	
@@ -23,30 +20,20 @@ public class RankingCombustivelController implements Initializable{
 	private ControllerFornecimento<Fornecimento> service;
 	
 	@FXML
-	private TableView<TabelaRankingFornecedores> tableViewRanking;
+	private TableView<FornecedorDTO> tableViewRanking;
 	
 	@FXML
-	private TableColumn<TabelaRankingFornecedores,String> tableColumnFonecedor;
+	private TableColumn<FornecedorDTO,String> tableColumnFonecedorNome;
 	
 	@FXML
-	private TableColumn<TabelaRankingFornecedores, String> tableColumnCombustivel;
+	private TableColumn<FornecedorDTO, Double> tableColumnCombustivelValor;
 	
-	@FXML
-	private TableColumn<TabelaRankingFornecedores, String> tableColumnPosto;
-	
-	@FXML
-	private TableColumn<TabelaRankingFornecedores, Long> tableColumnTanque;
-	
-	@FXML
-	private TableColumn<TabelaRankingFornecedores, Double> tableColumnValor;
-	
-	@FXML
-	private TableColumn<TabelaRankingFornecedores, Double> tableColumnLitro;
-	
-	@FXML TableColumn<TabelaRankingFornecedores, LocalDateTime> tableColumnData;
 	
 	@FXML 
-	private ObservableList<TabelaRankingFornecedores> obsList;
+	private TableColumn<FornecedorDTO, String> tableColumnData;
+	
+	@FXML 
+	private ObservableList<FornecedorDTO> obsList;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -56,13 +43,10 @@ public class RankingCombustivelController implements Initializable{
 	
 	
 	private void initializeNodes() {
-		tableColumnFonecedor.setCellValueFactory(new PropertyValueFactory<>("nomeFornecedor"));
-		tableColumnCombustivel.setCellValueFactory(new PropertyValueFactory<>("nomeCombustivel"));
-		tableColumnPosto.setCellValueFactory(new PropertyValueFactory<>("nomePosto"));
-		tableColumnTanque.setCellValueFactory(new PropertyValueFactory<>("Tanque"));
-		tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("Valor"));
-		tableColumnLitro.setCellValueFactory(new PropertyValueFactory<>("litro"));
-		tableColumnData.setCellValueFactory(new PropertyValueFactory<>("Data"));
+		tableColumnFonecedorNome.setCellValueFactory(new PropertyValueFactory<>("nomeFantasia"));
+		tableColumnCombustivelValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+		tableColumnData.setCellValueFactory(new PropertyValueFactory<>("data"));
+		
 	}
 	
 	public void setControllerFornecimento(ControllerFornecimento<Fornecimento> service) {
@@ -73,26 +57,10 @@ public class RankingCombustivelController implements Initializable{
 		if(service == null) {
 			throw new IllegalStateException("Raking Fornecimento was null");
 		}
-		List<TabelaRankingFornecedores> listaTable = teste();
-		obsList = FXCollections.observableArrayList(listaTable);
+		obsList = FXCollections.observableArrayList(service.rankingFornecedorMaisBarato());
 		tableViewRanking.setItems(obsList);
-		teste();
+		
 	}
-	
-	public List<TabelaRankingFornecedores> teste() {
-		List<Fornecimento> listaTable = service.rankingCombustivel();
-		List<TabelaRankingFornecedores> listaFornecedor = new ArrayList<>();
-		String nomeFornecedor,nomeCombustivel,nomePosto;
-		for(Fornecimento e: listaTable) {
-			nomeFornecedor = e.getFornecedor().getNomeFantasia();
-			nomeCombustivel = e.getCombustivel().getNomeCombustivel();
-			nomePosto = e.getPosto().getNomeFantasia();
-			listaFornecedor.add(new TabelaRankingFornecedores(nomeFornecedor, nomeCombustivel, nomePosto, e.getTanque().getId(), e.getValor(), e.getLitro(), e.getData()));
-		}
-		System.out.println(listaFornecedor);
-		return listaFornecedor;
-	}
-	
 
 }
 

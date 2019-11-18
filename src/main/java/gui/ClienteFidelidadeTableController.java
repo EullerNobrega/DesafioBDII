@@ -1,12 +1,9 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import controller.ControllerCliente;
-import gui.data.TabelaClienteFidelidade;
+import controller.ControllerCombustivelCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,24 +11,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Cliente;
+import model.CombustivelCliente;
+import model.dto.ClienteFidelidadeDTO;
 
 
 public class ClienteFidelidadeTableController implements Initializable {
 	
-	private ControllerCliente<Cliente> service;
+	private ControllerCombustivelCliente<CombustivelCliente> service;
 	
 	@FXML
-	private TableView<TabelaClienteFidelidade> tableViewClienteFidelidade;
+	private TableView<ClienteFidelidadeDTO> tableViewClienteFidelidade;
 	
 	@FXML
-	private TableColumn<TabelaClienteFidelidade, String> tableColumnCliente;
+	private TableColumn<ClienteFidelidadeDTO, String> tableColumnCliente;
 	
 	@FXML
-	private TableColumn<TabelaClienteFidelidade, String> tableColumnCartao;
+	private TableColumn<ClienteFidelidadeDTO, String> tableColumnCartao;
 	
 	@FXML
-	private ObservableList<TabelaClienteFidelidade> obsList;
+	private TableColumn<ClienteFidelidadeDTO,String> tableColumnCPF;
+	
+	@FXML
+	private TableColumn<ClienteFidelidadeDTO,Double> tableColumnConsumo;
+	
+	@FXML
+	private ObservableList<ClienteFidelidadeDTO> obsList;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -42,9 +46,11 @@ public class ClienteFidelidadeTableController implements Initializable {
 	private void initializeNodes() {
 		tableColumnCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
 		tableColumnCartao.setCellValueFactory(new PropertyValueFactory<>("numeroCartao"));
+		tableColumnCPF.setCellValueFactory(new PropertyValueFactory<>("cpfCliente"));
+		tableColumnConsumo.setCellValueFactory(new PropertyValueFactory<>("consumo"));
 	}
 	
-	public void setControllerCliente(ControllerCliente<Cliente> service) {
+	public void setControllerCliente(ControllerCombustivelCliente<CombustivelCliente> service) {
 		this.service = service;
 	}
 	
@@ -53,18 +59,10 @@ public class ClienteFidelidadeTableController implements Initializable {
 			throw new IllegalStateException("Cliente Fidelidade was null");
 		}
 
-		List<TabelaClienteFidelidade> listaTable = filtraDados();
-		obsList = FXCollections.observableArrayList(listaTable);
+		obsList = FXCollections.observableArrayList(service.consumoClienteFidelidade());
 		tableViewClienteFidelidade.setItems(obsList);
 	}
 	
-	public List<TabelaClienteFidelidade> filtraDados() {
-		List<Cliente> listaTable = service.clientesFidelidade();
-		List<TabelaClienteFidelidade> listaCliente = new ArrayList<>();
-		for(int i = 0; i < listaTable.size();i++) {
-			listaCliente.add(new TabelaClienteFidelidade(listaTable.get(i).getNome(), listaTable.get(i).getCartao().getNumeroCartao(), listaTable.get(i).getCpf()));
-		}
-		return listaCliente;
-	}
+	
 	
 }

@@ -54,14 +54,9 @@ public class VendaAcumuladaController implements Initializable {
 	
 	@FXML
 	public void vendaAcumulada() {
-		anoMes.textProperty().addListener((obs,aldFunc,newFunc)->{
-			if(newFunc != null) {
-				data.setData(anoMes.getText());
-			}
-		});
 		loadView("VendaAcumuladaView.fxml",(VendaAcumuladaController controller)->{
 			controller.setControllerCombustivelCliente(new ControllerCombustivelCliente<CombustivelCliente>());
-			controller.updateTable(data.getData());
+			controller.updateTable();
 		});
 	}
 	
@@ -77,11 +72,11 @@ public class VendaAcumuladaController implements Initializable {
 	}
 	
 	
-	public void updateTable(String data) {
+	public void updateTable() {
 		
 		
 		System.out.println(anoMes.getText());
-		obsList = FXCollections.observableArrayList(service.rankingTotalValorCombustivel(data));
+		obsList = FXCollections.observableArrayList(service.rankingTotalValorCombustivel("201806"));
 		tableVendaAcumulada.setItems(obsList);
 		
 	

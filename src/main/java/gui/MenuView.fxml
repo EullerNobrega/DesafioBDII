@@ -15,7 +15,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Faturamento">
                   <items>
-                    <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Combustível" />
+                    <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Fornecedor" />
                         <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível mais Vendidos" />
                         <MenuItem fx:id="menuItemClienteFidelidade" mnemonicParsing="false" onAction="#onMenuItemCartaoFidelidade" text="Cliente Fidelidade" />
                         <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Horário de Pico " />
@@ -27,7 +27,7 @@
                   <items>
                     <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Combustíveis mais Vendidos" />
                         <MenuItem fx:id="menuItemGraficoFornecedor" mnemonicParsing="false" onAction="#onMenuItemGraficoFornecedor" text="Fornecedores" />
-                        <MenuItem fx:id="menuItemAbastecimentoHoraGrafico" mnemonicParsing="false" onAction="#onMenuItemAbastecimentoHoraGrafico" text="Abastecimento por Hora" />
+                        <MenuItem fx:id="menuItemAbastecimentoHoraGrafico" mnemonicParsing="false" onAction="#onMenuItemAbastecimentoHoraGrafico" text="Horário de Pico" />
                   </items>
                 </Menu>
               </menus>

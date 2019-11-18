@@ -28,14 +28,14 @@ public class CombustivelCliente extends AbstractEntity {
 	private LocalDateTime data;
 	private Double litro;
 	private Double valorTotal;
-	
-	@Transient
-	private double lucro;
-	@Transient
-	private double valorMedio;
 
+<<<<<<< HEAD
 	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Funcionario funcionario, Tanque tanque, LocalDateTime data, Double litro,
 			Double valorTotal) {
+=======
+	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data,
+			Double litro, Double valorTotal) {
+>>>>>>> back+front
 		super();
 		this.posto = posto;
 		this.combustivel = combustivel;
@@ -48,6 +48,7 @@ public class CombustivelCliente extends AbstractEntity {
 	}
 
 	public CombustivelCliente() {
+<<<<<<< HEAD
 
 	}
 //	Getters & Setters
@@ -150,6 +151,8 @@ public class CombustivelCliente extends AbstractEntity {
 		return "CombustivelCliente [posto=" + posto + ", \ncombustivel=" + combustivel + ", \ncliente=" + cliente
 				+ "/ntanque=" + tanque + ", \ndata=" + data + ", \nlitro=" + litro + ", \nvalorTotal=" + valorTotal + ", \nlucro=" + lucro
 				+ ", \nvalorMedio=" + valorMedio + "]";
+=======
+>>>>>>> back+front
 	}
 
 }

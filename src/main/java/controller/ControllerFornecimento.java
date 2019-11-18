@@ -2,13 +2,11 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
-
-import javax.persistence.Query;
 
 import dao.DAOFornecimento;
 import model.AbstractEntity;
 import model.Fornecimento;
+import model.dto.FornecedorDTO;
 
 public class ControllerFornecimento<T extends AbstractEntity> {
 	private DAOFornecimento daoFornecimento;
@@ -41,38 +39,24 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 		return daoFornecimento.findAll();
 	}
 
-	public List<Fornecimento> rankingCombustivel() {
+	public List<FornecedorDTO> rankingFornecedorMaisBarato() {
 
-		Query createQuery = daoFornecimento.getEntityManager()
-				.createQuery("SELECT f " + "FROM Fornecimento f " + "ORDER BY f.valor desc");
-
-		List<Fornecimento> Fornecimento = createQuery.getResultList();
-
-		for (Fornecimento f : Fornecimento) {
-			System.out.println(f);
-		}
-		return Fornecimento;
-
-	}
-	
-	public List<Fornecimento> rankingAbstecimentoHora() {
-		Query createQuery = daoFornecimento.getEntityManager()
-				.createQuery("SELECT f, SUM(litro) FROM Fornecimento f where data < current_date() group by data order by SUM(litro) asc");
-		
-		List<Object[]> resultList = createQuery.getResultList();
-		List<Fornecimento> retorno = new ArrayList<Fornecimento>();
-		
-		for (Object[] objects : resultList) {
-			Fornecimento f = (Fornecimento)objects[0];
-			f.setSomaLitros((double) objects[1]);
-			retorno.add(f);
+		List<Object[]> resultList = daoFornecimento.getEntityManager()
+				.createNativeQuery("select DATE_FORMAT(data, '%Y/%m') as Data, f.nomeFantasia as Fornecedor,"
+						+ " truncate(fct.valor,2) as PrecoTotal from fornecimento fct " + "inner join fornecedor f "
+						+ "on fct.fornecedor = f.id " + "group by  fornecedor " + "order by fct.valor asc;")
+				.getResultList();
+		List<FornecedorDTO> list = new ArrayList<>();
+		for (Object[] obj : resultList) {
+			FornecedorDTO f = new FornecedorDTO();
+			f.setData((String) obj[0]);
+			f.setNomeFantasia((String) obj[1]);
+			f.setValor((double) obj[2]);
+			list.add(f);
 		}
 		
-		System.out.println(retorno);
-		
-		return retorno;
-		
+		return list;
+
 	}
-	
 
 }

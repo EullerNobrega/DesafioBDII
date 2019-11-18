@@ -4,13 +4,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="242.0" prefWidth="422.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<VBox prefHeight="398.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CombustivelMaisVendidoController">
    <children>
-      <TableView prefHeight="245.0" prefWidth="422.0">
+      <TableView fx:id="tableCombustivel" prefHeight="470.0" prefWidth="596.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Tipo_Combustível" />
-          <TableColumn prefWidth="75.0" text="TotalVendas" />
+          <TableColumn fx:id="tableColumnNome" prefWidth="75.0" text="Combustivel" />
+          <TableColumn fx:id="tableColumnTotalVendas" prefWidth="75.0" text="TotalVendas" />
         </columns>
       </TableView>
    </children>

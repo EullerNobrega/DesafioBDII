@@ -3,7 +3,6 @@ package gui;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-import controller.ControllerCliente;
 import controller.ControllerCombustivelCliente;
 import controller.ControllerFornecimento;
 import javafx.fxml.FXML;
@@ -14,7 +13,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import model.Cliente;
 import model.CombustivelCliente;
 import model.Fornecimento;
 import util.front.Alerts;
@@ -38,16 +36,18 @@ public class MenuViewController {
 
 	@FXML
 	private MenuItem menuItemGraficoFornecedor;
-	
+
 	@FXML
 	private MenuItem menuItemLucro;
-	
+
 	@FXML
 	private MenuItem menuItemQtdAbastecimentoHora;
-	
 
 	@FXML
 	private MenuItem menuItemAbastecimentoHoraGrafico;
+
+	@FXML
+	private MenuItem menuItemVendaAcumulada;
 
 	@FXML // ranking fornecedor
 	public void onMenuItemRankingCombustive() {
@@ -65,12 +65,12 @@ public class MenuViewController {
 	 * @FXML public void onMenuItemCombustivel() {
 	 * loadView("/gui/ganhosMensais.fxml", x -> { }); }
 	 */
-	
+
 	@FXML
 	public void onMenuItemCombustiveis() {
-		loadView("/gui/CombustivelMaisVendidoView.fxml",(CombustivelMaisVendidoController controller)->{
+		loadView("/gui/CombustivelMaisVendidoView.fxml", (CombustivelMaisVendidoController controller) -> {
 			controller.setControllerCombustivelCliente(new ControllerCombustivelCliente<CombustivelCliente>());
-			controller.updateTable();
+			controller.updateList();
 		});
 	}
 
@@ -84,7 +84,7 @@ public class MenuViewController {
 	@FXML
 	public void onMenuItemCartaoFidelidade() {
 		loadView("/gui/ClienteFidelidadeTable.fxml", (ClienteFidelidadeTableController controller) -> {
-			controller.setControllerCliente(new ControllerCliente<Cliente>());
+			controller.setControllerCliente(new ControllerCombustivelCliente<CombustivelCliente>());
 			controller.updateTable();
 		});
 	}
@@ -97,35 +97,39 @@ public class MenuViewController {
 		});
 
 	}
-	
-	@FXML //tabela lucro tabela
+
+	@FXML // tabela lucro tabela
 	public void onMenuItemLucro() {
-		
-		loadView("/gui/LucroTable.fxml", (LucroTableController controller)->{
+
+		loadView("/gui/LucroTable.fxml", (LucroTableController controller) -> {
 			controller.setControllerCombustivelCliente(new ControllerCombustivelCliente<CombustivelCliente>());
 			controller.updateTable();
 		});
 	}
 
-	
 	@FXML
 	public void onMenuItemQtdAbastecimentoHora() {
-		loadView("/gui/QtdAbastecimentoHora.fxml",(QtdAbastecimentoHoraController controller)->{
-			controller.setControllerCombustivelCliente(new ControllerFornecimento<Fornecimento>());
+		loadView("/gui/HorarioPicoCombustivel.fxml", (HorarioPicoController controller)->{
+			controller.setControllerCombustivelCliente(new ControllerCombustivelCliente<CombustivelCliente>());
 			controller.updateList();
 		});
 	}
-	
+
 	@FXML
 	public void onMenuItemAbastecimentoHoraGrafico() {
-		loadView("/gui/QtdAbastecimentoHoraGrafico.fxml", (QtdAbastecimentoHoraGraficoController controller)->{
+		loadView("/gui/QtdAbastecimentoHoraGrafico.fxml", (QtdAbastecimentoHoraGraficoController controller) -> {
 			controller.setQtdAbastecimentoHora();
 		});
 	}
-	
-	
+
+	@FXML
+	public void onMenuItemVendaAcumulada() {
+		loadView("/gui/VendaAcumuladaView.fxml", x -> {
+		});
+	}
+
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
-		
+
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVBox = loader.load();

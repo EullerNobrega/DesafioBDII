@@ -14,14 +14,4 @@ public class CombustivelPreco extends AbstractEntity {
 		super();
 	}
 
-//	Getters & Setters
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
 }

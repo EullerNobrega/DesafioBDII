@@ -22,37 +22,4 @@ public class Tanque extends AbstractEntity {
 	public Tanque() {
 		super();
 	}
-
-//	Getters & Setters
-
-	public Combustivel getCombustivel() {
-		return combustivel;
-	}
-
-	public void setCombustivel(Combustivel combustivel) {
-		this.combustivel = combustivel;
-	}
-
-	public double getVolumeMax() {
-		return volumeMax;
-	}
-
-	public void setVolumeMax(double volumeMax) {
-		this.volumeMax = volumeMax;
-	}
-
-	public double getVolumeAtual() {
-		return volumeAtual;
-	}
-
-	public void setVolumeAtual(double volumeAtual) {
-		this.volumeAtual = volumeAtual;
-	}
-
-	@Override
-	public String toString() {
-		return "Tanque [combustivel=" + combustivel + ", volumeMax=" + volumeMax + ", volumeAtual=" + volumeAtual + "]";
-	}
-
-	
 }

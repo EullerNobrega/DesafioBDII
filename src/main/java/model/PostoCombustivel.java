@@ -35,46 +35,4 @@ public class PostoCombustivel extends AbstractEntity {
 	public PostoCombustivel() {
 		super();
 	}
-//	Getters & Setters
-
-	public Posto getPosto() {
-		return posto;
-	}
-
-	public void setPosto(Posto posto) {
-		this.posto = posto;
-	}
-
-	public Combustivel getCombustivel() {
-		return combustivel;
-	}
-
-	public void setCombustivel(Combustivel combustivel) {
-		this.combustivel = combustivel;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public float getLitros() {
-		return litros;
-	}
-
-	public void setLitros(float litros) {
-		this.litros = litros;
-	}
-
-	public float getTotalCompra() {
-		return totalCompra;
-	}
-
-	public void setTotalCompra(float totalCompra) {
-		this.totalCompra = totalCompra;
-	}
-
 }

@@ -19,32 +19,4 @@ public class Combustivel extends AbstractEntity {
 		super();
 	}
 
-//	Getters & Setters
-
-	public Long getId() {
-		return super.getId();
-	}
-
-	public String getNomeCombustivel() {
-		return nomeCombustivel;
-
-	}
-
-	public void setNomeCombustivel(String nomeCombustivel) {
-		this.nomeCombustivel = nomeCombustivel;
-	}
-
-	public long getTotalVendas() {
-		return totalVendas;
-	}
-
-	public void setTotalVendas(long totalVendas) {
-		this.totalVendas = totalVendas;
-	}
-
-	@Override
-	public String toString() {
-		return "Combustivel [nomeCombustivel=" + nomeCombustivel + ", totalVendas=" + totalVendas + "]";
-	}
-
 }

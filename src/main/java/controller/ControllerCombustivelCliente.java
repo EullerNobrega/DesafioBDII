@@ -1,14 +1,18 @@
 package controller;
 
+import java.math.BigInteger;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Query;
 
 import dao.DAOCombustivelCliente;
 import model.AbstractEntity;
-import model.Combustivel;
 import model.CombustivelCliente;
-import model.LucroValor;
+import model.dto.ClienteFidelidadeDTO;
+import model.dto.CombustivelDTO;
+import model.dto.HorarioPicoDTO;
+import model.dto.LucroValorDTO;
+import model.dto.TotalVendaCombustivelDTO;
 
 public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	private DAOCombustivelCliente daoCombustivelCliente;
@@ -41,67 +45,114 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		return daoCombustivelCliente.findAll();
 	}
 
-	public class DTO {
-		int max;
-		Combustivel c;
-
-	}
-
 //	SELECTS
 
-	public Combustivel maisVendido() {
-		Query createQuery = daoCombustivelCliente.getEntityManager()
-				.createQuery("SELECT count(CL.id), combustivel FROM CombustivelCliente CL group by combustivel");
-		List<Object[]> resultList = createQuery.getResultList();
-
-		Combustivel maior = new Combustivel();
-		maior.setTotalVendas(0);
-
-		for (Object[] o : resultList) {
-			Combustivel c = (Combustivel) o[1];
-			c.setTotalVendas((long) o[0]);
-
-			if (c.getTotalVendas() > maior.getTotalVendas()) {
-				maior = c;
-			}
-
+	public List<CombustivelDTO> combustiveisMaisVendidos() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("select c.nomeCombustivel, count(c.id) QtdVendas from combustivelcliente ccl "
+						+ "inner join combustivel c " + "on ccl.combustivel = c.id " + "group by c.nomeCombustivel;")
+				.getResultList();
+		List<CombustivelDTO> list = new ArrayList<>();
+		for (Object[] obj : resultList) {
+			CombustivelDTO c = new CombustivelDTO();
+			c.setNomeCombustivel((String) obj[0]);
+			c.setQtdVendas((BigInteger) obj[1]);
+			list.add(c);
 		}
-		System.out.println(maior);
-
-		return maior;
-
+		return list;
 	}
 
-	public LucroValor lucroBrutoValorMedio() {
-		Query createQuery = daoCombustivelCliente.getEntityManager()
-				.createQuery("SELECT SUM(valorTotal), SUM(valorTotal)/SUM(litro) FROM "
-						+ "CombustivelCliente CL where data < current_date()");
-		List<Object[]> resultList = createQuery.getResultList();
+	public List<LucroValorDTO> lucroBrutoValorMedioPorMes() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("SELECT DATE_FORMAT(data, '%Y/%m') as Data,"
+						+ " SUM(valorTotal) as LucroCombustivel, "
+						+ "truncate(SUM(valorTotal)/SUM(Litro), 2) AS valorMedioCombustivel "
+						+ "FROM combustivelcliente " + "WHERE DATE(data) " + "group by DATE_FORMAT(data, '%Y/%m');")
+				.getResultList();
 
+		List<LucroValorDTO> lista = new ArrayList<>();
 		for (Object[] o : resultList) {
-			LucroValor lv = new LucroValor();
-			lv.setLucro((double) o[0]);
-			lv.setValorMedio((double) o[1]);
-			System.out.println(lv);
+			LucroValorDTO lv = new LucroValorDTO();
+			lv.setData((String) o[0]);
+			lv.setLucro((double) o[1]);
+			lv.setValorMedio((double) o[2]);
+			lista.add(lv);
 		}
 
-		return null;
+		return lista;
+	}
+
+	public List<HorarioPicoDTO> horarioPicoQtdAbastecimento() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("SELECT sum(litro) as QtdCombustivel, data as Pico, c.nomeCombustivel "
+						+ "FROM Fornecimento F " + "inner join combustivel c " + "on f.combustivel = c.id "
+						+ "WHERE DATE(data) " + "group by  data " + "order by sum(litro) desc;")
+				.getResultList();
+
+		List<HorarioPicoDTO> list = new ArrayList<>();
+
+		for (Object[] obj : resultList) {
+			HorarioPicoDTO h = new HorarioPicoDTO();
+			h.setQtdGasolina((double) obj[0]);
+			h.setDataPico( (Timestamp) obj[1]);
+			h.setNomeCombustivel((String) obj[2]);
+			list.add(h);
+		}
+		
+		System.out.println(list);
+
+		return list;
+
+	}
+	
+	
+	public List<ClienteFidelidadeDTO> consumoClienteFidelidade() {
+		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
+				.createNativeQuery("select c.nome, c.cpf, c.cnpj, cf.numeroCartao, truncate((clc.valorTotal),2) as Compras_total " + 
+				"from cliente c " + 
+				"inner join combustivelcliente clc " + 
+				"on c.id = clc.cliente " + 
+				"inner join cartaofidelidade cf " + 
+				"on c.cartao = cf.id " + 
+				"group by cliente " + 
+				"order by truncate((clc.valorTotal),2) desc;").getResultList();
+		
+		List<ClienteFidelidadeDTO> list = new ArrayList<>();
+		
+		for (Object[] obj : resultList) {
+			ClienteFidelidadeDTO clf = new ClienteFidelidadeDTO();
+			clf.setNomeCliente((String) obj[0]);
+			clf.setCpfCliente((String) obj[1]);
+			clf.setCnpjCliente((String) obj[2]);
+			clf.setNumeroCartao((String) obj[3]);
+			clf.setConsumo((double) obj[4]);
+			list.add(clf);
+		}
+		
+		System.out.println(list);
+		return list;
+		
 	}
 
 //	PROCEDURES
 
-	public double VendaAcumulada(String anoMes) {
-		List<Object[]> vendasMes = daoCombustivelCliente.getEntityManager()
+	public List<TotalVendaCombustivelDTO> rankingTotalValorCombustivel(String anoMes) {
+
+		List<Object[]> query = daoCombustivelCliente.getEntityManager()
 				.createNativeQuery("call TotalVenda(:data_escolhida)").setParameter("data_escolhida", anoMes)
 				.getResultList();
 
-		double somaMes = 0;
-		for (Object[] o : vendasMes) {
-			somaMes += (double)o[0];
+		List<TotalVendaCombustivelDTO> lista = new ArrayList<>();
+
+		for (Object[] obj : query) {
+			TotalVendaCombustivelDTO tvc = new TotalVendaCombustivelDTO();
+			tvc.setValorTotal((double) obj[0]);
+			tvc.setNomeCombustivel((String) obj[1]);
+			tvc.setData((String) obj[2]);
+			lista.add(tvc);
 		}
-		
-		System.out.println(somaMes);
-		return somaMes;
+
+		return lista;
 	}
 
 }

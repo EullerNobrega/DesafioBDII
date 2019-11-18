@@ -8,24 +8,18 @@ public class Preco extends AbstractEntity {
 	@NotNull
 	private Double valor;
 
-	public Preco() {
-		super();
-	}
-
 	public Preco(Double valor) {
 		super();
 		this.valor = valor;
 	}
 
-//	Getters & Setters
+	public Preco() {
+		super();
+	}
 
 	public Double getValor() {
 		return valor;
 	}
-
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
-
+	
 
 }

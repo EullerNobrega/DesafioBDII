@@ -6,7 +6,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente extends Pessoa {
-	
+
 	@OneToOne
 	@JoinColumn(name = "cartao")
 	private CartaoFidelidade cartao;
@@ -23,25 +23,5 @@ public class Cliente extends Pessoa {
 	public Cliente() {
 		super();
 	}
-
-//	Getters & Setters
-
-	public CartaoFidelidade getCartao() {
-		return cartao;
-	}
-
-	public void setCartao(CartaoFidelidade cartao) {
-		this.cartao = cartao;
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [cartao=" + cartao + ", getCpf()=" + getCpf() + ", getNome()=" + getNome() + ", getCpnj()="
-				+ getCpnj() + "]";
-	}
-
-
-	
-	
 
 }

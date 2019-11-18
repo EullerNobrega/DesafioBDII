@@ -13,50 +13,16 @@ public class Pessoa extends AbstractEntity {
 	@CPF
 	private String cpf;
 	@CNPJ
-	private String cpnj;
-	
-public Pessoa(String nome, String cpf, String cpnj) {
+	private String cnpj;
+
+	public Pessoa(String nome, String cpf, String cnpj) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.cpnj = cpnj;
+		this.cnpj = cnpj;
 	}
-
-//	Getters & Setters
 
 	public Pessoa() {
-	// TODO Auto-generated constructor stub
-}
-
-	public String getCpf() {
-		return cpf;
 	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpnj() {
-		return cpnj;
-	}
-
-	public void setCpnj(String cpnj) {
-		this.cpnj = cpnj;
-	}
-
-	@Override
-	public String toString() {
-		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cpnj=" + cpnj + "]";
-	}
-	
-	
 
 }

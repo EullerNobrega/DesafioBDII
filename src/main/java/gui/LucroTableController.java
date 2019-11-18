@@ -15,21 +15,21 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.CombustivelCliente;
-import model.LucroValor;
+import model.dto.LucroValorDTO;
 
 public class LucroTableController  implements Initializable{
 
 	
 	@FXML
-	private TableView<LucroValor> tableViewLucro;
+	private TableView<LucroValorDTO> tableViewLucro;
 	@FXML
-	private TableColumn<LucroValor, Double> columnLucro;
+	private TableColumn<LucroValorDTO, Double> columnLucro;
 	@FXML
-	private TableColumn<LucroValor, Double> columnValor;
+	private TableColumn<LucroValorDTO, Double> columnValor;
 	
 	private ControllerCombustivelCliente<CombustivelCliente> service;
 	
-	private ObservableList<LucroValor> obsList;
+	private ObservableList<LucroValorDTO> obsList;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -54,15 +54,8 @@ public class LucroTableController  implements Initializable{
 			throw new IllegalStateException("Cliente Fidelidade was null");
 		}
 
-		obsList = FXCollections.observableArrayList(setListLucro());
+		obsList = FXCollections.observableArrayList(service.lucroBrutoValorMedioPorMes());
 		tableViewLucro.setItems(obsList);
 	}
 	
-	private List<LucroValor> setListLucro(){
-		LucroValor aux = service.lucroBrutoValorMedio();
-		List<LucroValor> l = new ArrayList<>();
-		System.out.println(aux);
-		l.add(aux);
-		return l;
-	}
 }

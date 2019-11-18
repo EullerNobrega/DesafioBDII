@@ -16,10 +16,11 @@
                 <Menu mnemonicParsing="false" text="Faturamento">
                   <items>
                     <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Combustível" />
-                        <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível " />
+                        <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível mais Vendidos" />
                         <MenuItem fx:id="menuItemClienteFidelidade" mnemonicParsing="false" onAction="#onMenuItemCartaoFidelidade" text="Cliente Fidelidade" />
-                        <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Quantidade de Abastecimento por hora" />
+                        <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Horário de Pico " />
                         <MenuItem fx:id="menuItemLucro" mnemonicParsing="false" onAction="#onMenuItemLucro" text="Lucro" />
+                        <MenuItem fx:id="menuItemVendaAcumulada" mnemonicParsing="false" onAction="#onMenuItemVendaAcumulada" text="Venda Acumulada" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gráficos">

@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
 import controller.ControllerCombustivelCliente;
-import gui.data.TextFieldAnoMes;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -48,7 +47,7 @@ public class VendaAcumuladaController implements Initializable {
 	@FXML
 	private TableColumn<TotalVendaCombustivelDTO, String> columnData;
 	
-	private TextFieldAnoMes data = new TextFieldAnoMes();
+
 	@FXML
 	private ObservableList<TotalVendaCombustivelDTO> obsList;
 	
@@ -74,8 +73,6 @@ public class VendaAcumuladaController implements Initializable {
 	
 	public void updateTable() {
 		
-		
-		System.out.println(anoMes.getText());
 		obsList = FXCollections.observableArrayList(service.rankingTotalValorCombustivel("201806"));
 		tableVendaAcumulada.setItems(obsList);
 		

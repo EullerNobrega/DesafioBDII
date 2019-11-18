@@ -148,9 +148,11 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 			TotalVendaCombustivelDTO tvc = new TotalVendaCombustivelDTO();
 			tvc.setValorTotal((double) obj[0]);
 			tvc.setNomeCombustivel((String) obj[1]);
-			tvc.setData((Timestamp) obj[2]);
+			tvc.setData((String) obj[2]);
 			lista.add(tvc);
 		}
+		
+		System.out.println(lista);
 
 		return lista;
 	}

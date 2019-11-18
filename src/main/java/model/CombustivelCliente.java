@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 @Entity
 public class CombustivelCliente extends AbstractEntity {
@@ -29,16 +28,8 @@ public class CombustivelCliente extends AbstractEntity {
 	private Double litro;
 	private Double valorTotal;
 
-
-	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Funcionario funcionario, Tanque tanque, LocalDateTime data, Double litro,
-			Double valorTotal) {
-
-	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data,
-			Double litro, Double valorTotal) {
-
-	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data,
-			Double litro, Double valorTotal) {
-
+	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Funcionario funcionario,
+			Tanque tanque, LocalDateTime data, Double litro, Double valorTotal) {
 		super();
 		this.posto = posto;
 		this.combustivel = combustivel;
@@ -51,7 +42,6 @@ public class CombustivelCliente extends AbstractEntity {
 	}
 
 	public CombustivelCliente() {
-
 
 	}
 //	Getters & Setters
@@ -103,8 +93,6 @@ public class CombustivelCliente extends AbstractEntity {
 	public void setValorTotao(Double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	
-	
 
 	public Double getValorTotal() {
 		return valorTotal;
@@ -114,23 +102,6 @@ public class CombustivelCliente extends AbstractEntity {
 		this.valorTotal = valorTotal;
 	}
 
-	public double getLucro() {
-		return lucro;
-	}
-
-	public void setLucro(double lucro) {
-		this.lucro = lucro;
-	}
-
-	public double getValorMedio() {
-		return valorMedio;
-	}
-
-	public void setValorMedio(double valorMedio) {
-		this.valorMedio = valorMedio;
-	}
-	
-	
 	public Tanque getTanque() {
 		return tanque;
 	}
@@ -138,8 +109,6 @@ public class CombustivelCliente extends AbstractEntity {
 	public void setTanque(Tanque tanque) {
 		this.tanque = tanque;
 	}
-	
-	
 
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -147,14 +116,6 @@ public class CombustivelCliente extends AbstractEntity {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
-	}
-
-	@Override
-	public String toString() {
-		return "CombustivelCliente [posto=" + posto + ", \ncombustivel=" + combustivel + ", \ncliente=" + cliente
-				+ "/ntanque=" + tanque + ", \ndata=" + data + ", \nlitro=" + litro + ", \nvalorTotal=" + valorTotal + ", \nlucro=" + lucro
-				+ ", \nvalorMedio=" + valorMedio + "]";
-
 	}
 
 }

@@ -1,9 +1,11 @@
 package model.dto;
 
+import java.sql.Timestamp;
+
 public class TotalVendaCombustivelDTO {
 	private double valorTotal;
 	private String nomeCombustivel;
-	private String data;
+	private Timestamp data;
 
 	public double getValorTotal() {
 		return valorTotal;
@@ -21,11 +23,11 @@ public class TotalVendaCombustivelDTO {
 		this.nomeCombustivel = nomeCombustivel;
 	}
 
-	public String getData() {
+	public Timestamp getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Timestamp data) {
 		this.data = data;
 	}
 

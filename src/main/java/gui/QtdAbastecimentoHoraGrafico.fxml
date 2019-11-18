@@ -9,10 +9,10 @@
    <children>
       <BarChart fx:id="barChart">
         <xAxis>
-          <CategoryAxis label="Data" onDragDetected="#initialize" side="BOTTOM" fx:id="xAxis" />
+          <CategoryAxis onDragDetected="#initialize" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis label="Litro" side="LEFT" />
+          <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
    </children>

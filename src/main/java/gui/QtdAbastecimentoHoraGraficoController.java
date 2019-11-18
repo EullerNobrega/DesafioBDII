@@ -17,9 +17,7 @@ public class QtdAbastecimentoHoraGraficoController {
 	private CategoryAxis xAxis;
 		
 	private ObservableList<String> data = FXCollections.observableArrayList(Arrays.asList
-			("2018-07-02T08:20","2018-06-30T16:20", "2018-07-01T14:05", "2018-06-30T09:40", "2018-07-03T09:20",
-			"2018-06-30T04:30", "2018-07-01T06:00", "2018-07-01T14:50", "2018-07-01T05:10", "2018-06-30T15:20", 
-			"2018-07-01T06:50", "2018-06-30T07:20", "2018-07-01T14:40", "2018-07-02T09:20"));
+			("Gasolina","Gasolina Aditivada","Etanol","GNV","Disel"));
 	
 	@FXML
 	public void initialize() {
@@ -29,23 +27,29 @@ public class QtdAbastecimentoHoraGraficoController {
 	public void setQtdAbastecimentoHora() {
 		XYChart.Series<String, Double> series = new XYChart.Series<>();
 		
-		series.getData().add(new XYChart.Data<>(data.get(0),4500.0));
-		series.getData().add(new XYChart.Data<>(data.get(1),6200.0));
-		series.getData().add(new XYChart.Data<>(data.get(2),9000.0));
-		series.getData().add(new XYChart.Data<>(data.get(3),9750.0));
-		series.getData().add(new XYChart.Data<>(data.get(4),7800.0));
+		// GASOLINA
+		series.getData().add(new XYChart.Data<>(data.get(0),51700.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(0),14500.00));
+		series.getData().add(new XYChart.Data<>(data.get(0),13700.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(0),13000.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(0),13000.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(0),12800.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(0),9800.00 ));
+		// GASOLINA ADITIVADA
+		series.getData().add(new XYChart.Data<>(data.get(1),10000.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(1),9750.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(1),6200.00 ));
+	
+		//ETANOL
+		series.getData().add(new XYChart.Data<>(data.get(2),14000.00 ));
+		series.getData().add(new XYChart.Data<>(data.get(2),13000.00));
 		
-		series.getData().add(new XYChart.Data<>(data.get(5),10000.0));
-		series.getData().add(new XYChart.Data<>(data.get(6),12800.0));
-		series.getData().add(new XYChart.Data<>(data.get(7),13000.0));
-		series.getData().add(new XYChart.Data<>(data.get(8),13000.0));
-		series.getData().add(new XYChart.Data<>(data.get(9),13000.0));
-		series.getData().add(new XYChart.Data<>(data.get(10),13700.0));
-		series.getData().add(new XYChart.Data<>(data.get(11),14000.0));
+		//GNV
+		series.getData().add(new XYChart.Data<>(data.get(3),9000.00));
 		
-		series.getData().add(new XYChart.Data<>(data.get(12),14500.0));
-		series.getData().add(new XYChart.Data<>(data.get(13),6000.0));
 		
+		//disel
+		series.getData().add(new XYChart.Data<>(data.get(4),4500.00 ));
 		barChart.getData().add(series);
 	}
 }

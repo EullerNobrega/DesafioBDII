@@ -19,6 +19,9 @@ public class CombustivelCliente extends AbstractEntity {
 	@JoinColumn(name = "cliente")
 	private Cliente cliente;
 	@ManyToOne
+	@JoinColumn(name = "funcionario")
+	private Funcionario funcionario;
+	@ManyToOne
 	@JoinColumn(name = "tanque")
 	private Tanque tanque;
 
@@ -31,13 +34,14 @@ public class CombustivelCliente extends AbstractEntity {
 	@Transient
 	private double valorMedio;
 
-	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Tanque tanque, LocalDateTime data, Double litro,
+	public CombustivelCliente(Posto posto, Combustivel combustivel, Cliente cliente, Funcionario funcionario, Tanque tanque, LocalDateTime data, Double litro,
 			Double valorTotal) {
 		super();
 		this.posto = posto;
 		this.combustivel = combustivel;
 		this.cliente = cliente;
 		this.tanque = tanque;
+		this.funcionario = funcionario;
 		this.data = data;
 		this.litro = litro;
 		this.valorTotal = valorTotal;
@@ -129,6 +133,16 @@ public class CombustivelCliente extends AbstractEntity {
 
 	public void setTanque(Tanque tanque) {
 		this.tanque = tanque;
+	}
+	
+	
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	@Override

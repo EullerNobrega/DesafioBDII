@@ -124,7 +124,7 @@ public class MenuViewController {
 
 	@FXML
 	public void onMenuItemVendaAcumulada() {
-		loadView("VendaAcumuladaView.fxml", x -> {
+		loadView("/gui/VendaAcumuladaView.fxml", x -> {
 		});
 	}
 

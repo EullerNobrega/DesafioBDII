@@ -22,6 +22,7 @@ public class Main {
 //		controllerCombustivelCliente.combustiveisMaisVendidos(); --- OK
 //		controllerCombustivelCliente.horarioPicoQtdAbastecimento(); --- OK
 		controllerCombustivelCliente.consumoClienteFidelidade(); 
+		controllerCombustivelCliente.topFuncionarios("201806");
 
 		// Procedures
 //		controllerCombustivelCliente.rankingTotalValorCombustivel("201807"); --- OK

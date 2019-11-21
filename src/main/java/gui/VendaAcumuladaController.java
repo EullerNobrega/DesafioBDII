@@ -28,7 +28,7 @@ import util.front.Alerts;
 public class VendaAcumuladaController implements Initializable {
 	
 	@FXML
-	private TextField anoMes;
+	private TextField anoMes ;
 	
 	@FXML
 	private Button buscar;
@@ -54,8 +54,9 @@ public class VendaAcumuladaController implements Initializable {
 	@FXML
 	public void vendaAcumulada() {
 		loadView("VendaAcumuladaView.fxml",(VendaAcumuladaController controller)->{
+			System.out.println(anoMes.getText());
 			controller.setControllerCombustivelCliente(new ControllerCombustivelCliente<CombustivelCliente>());
-			controller.updateTable();
+			controller.updateTable(anoMes.getText());
 		});
 	}
 	
@@ -70,10 +71,10 @@ public class VendaAcumuladaController implements Initializable {
 		this.service = service;
 	}
 	
-	
-	public void updateTable() {
-		
-		obsList = FXCollections.observableArrayList(service.rankingTotalValorCombustivel("201806"));
+	@FXML
+	public void updateTable(String ano) {
+		System.out.println(ano);
+		obsList = FXCollections.observableArrayList(service.rankingTotalValorCombustivel(ano));
 		tableVendaAcumulada.setItems(obsList);
 		
 	

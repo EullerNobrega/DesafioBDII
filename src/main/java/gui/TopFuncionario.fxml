@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="392.0" prefWidth="495.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TopFuncionarioController">
+   <children>
+      <ScrollPane prefHeight="29.0" prefWidth="495.0">
+         <content>
+            <TextField fx:id="anoMes" onAction="#topFuncionarios" promptText="Ano/Mes" />
+         </content>
+      </ScrollPane>
+      <TableView fx:id="tableTopFuncionario" prefHeight="327.0" prefWidth="495.0">
+        <columns>
+            <TableColumn fx:id="tableColumnNome" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="tableColumnCPF" prefWidth="75.0" text="CPF" />
+          <TableColumn fx:id="tableColumnCNPJ" prefWidth="75.0" text="CNPJ" />
+            <TableColumn fx:id="tableColumnTotalVenda" prefWidth="98.0" text="Total_Vendas" />
+        </columns>
+      </TableView>
+      <Button fx:id="buscar" mnemonicParsing="false" onAction="#topFuncionarios" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: #333333;" text="Buscar" textFill="#f8eaea" />
+   </children>
+</VBox>

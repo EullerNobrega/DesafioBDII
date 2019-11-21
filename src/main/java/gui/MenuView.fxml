@@ -21,6 +21,7 @@
                         <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Horário de Pico " />
                         <MenuItem fx:id="menuItemLucro" mnemonicParsing="false" onAction="#onMenuItemLucro" text="Lucro" />
                         <MenuItem fx:id="menuItemVendaAcumulada" mnemonicParsing="false" onAction="#onMenuItemVendaAcumulada" text="Venda Acumulada" />
+                        <MenuItem fx:id="meniItemTopFuncionario" mnemonicParsing="false" onAction="#onMenuItemTopFuncionario" text="Top Funcionarios" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gráficos">

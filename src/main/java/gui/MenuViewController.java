@@ -48,6 +48,9 @@ public class MenuViewController {
 
 	@FXML
 	private MenuItem menuItemVendaAcumulada;
+	
+	@FXML
+	private MenuItem meniItemTopFuncionario;
 
 	@FXML // ranking fornecedor
 	public void onMenuItemRankingCombustive() {
@@ -126,6 +129,10 @@ public class MenuViewController {
 	public void onMenuItemVendaAcumulada() {
 		loadView("/gui/VendaAcumuladaView.fxml", x -> {
 		});
+	}
+	
+	public void onMenuItemTopFuncionario() {
+		loadView("/gui/TopFuncionario.fxml", x->{});
 	}
 
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {

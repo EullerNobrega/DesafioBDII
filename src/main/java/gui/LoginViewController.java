@@ -45,7 +45,7 @@ public class LoginViewController implements Initializable {
 		if ((login.getText() == null || login.getText().trim().equals(""))
 				&& (password.getText() == null || password.getText().trim().equals(""))) {
 			Alerts.showAlert("LOGIN INVÁLIDO", "LOGIN E PASSWORD INVÁLIDO", null, AlertType.ERROR);
-		} else {
+		} else if(login.getText().equals("adm") && password.getText().equals("admin")) {
 			Stage atualStage = (Stage) btnLogin.getScene().getWindow();
 			atualStage.close();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MenuView.fxml"));
@@ -59,6 +59,8 @@ public class LoginViewController implements Initializable {
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("PostoSmart");
 			primaryStage.show();
+		} else {
+			Alerts.showAlert("LOGIN INVÁLIDO", "LOGIN E PASSWORD INVÁLIDO", null, AlertType.ERROR);
 		}
 	}
 

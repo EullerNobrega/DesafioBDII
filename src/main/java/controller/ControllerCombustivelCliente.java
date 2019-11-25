@@ -51,8 +51,8 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	public List<CombustivelDTO> combustiveisMaisVendidos() {
 		List<Object[]> resultList = daoCombustivelCliente.getEntityManager()
 				.createNativeQuery("select c.nomeCombustivel, count(c.id) QtdVendas from combustivelcliente ccl "
-						+ "inner join combustivel c " + "on ccl.combustivel = c.id " + "group by c.nomeCombustivel +"
-								+ "order by count(combustivel) desc;")
+						+ "inner join combustivel c " + "on ccl.combustivel = c.id " + "group by c.nomeCombustivel " +
+								"order by count(combustivel) desc;")
 				.getResultList();
 		List<CombustivelDTO> list = new ArrayList<>();
 		for (Object[] obj : resultList) {

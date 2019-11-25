@@ -51,6 +51,9 @@ public class MenuViewController {
 	
 	@FXML
 	private MenuItem meniItemTopFuncionario;
+	
+	@FXML
+	private MenuItem menuItemLucroGrafico;
 
 	@FXML // ranking fornecedor
 	public void onMenuItemRankingCombustive() {
@@ -124,7 +127,14 @@ public class MenuViewController {
 			controller.setQtdAbastecimentoHora();
 		});
 	}
-
+	
+	@FXML
+	public void onMenuItemLucroGrafico() {
+		loadView("/gui/LucroGrafico.fxml", (LucroGraficoController controller)->{
+			controller.setMediaLucro();
+			controller.setVariacaoLucro();
+		});
+	}
 	@FXML
 	public void onMenuItemVendaAcumulada() {
 		loadView("/gui/VendaAcumuladaView.fxml", x -> {

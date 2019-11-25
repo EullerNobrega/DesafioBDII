@@ -26,6 +26,8 @@ public class LucroTableController  implements Initializable{
 	private TableColumn<LucroValorDTO, Double> columnLucro;
 	@FXML
 	private TableColumn<LucroValorDTO, Double> columnValor;
+	@FXML
+	private TableColumn<LucroValorDTO, String> columnData;
 	
 	private ControllerCombustivelCliente<CombustivelCliente> service;
 	
@@ -39,6 +41,7 @@ public class LucroTableController  implements Initializable{
 	
 	
 	private void initializeNodes() {
+		columnData.setCellValueFactory(new PropertyValueFactory<>("data"));
 		columnLucro.setCellValueFactory(new PropertyValueFactory<>("lucro"));
 		columnValor.setCellValueFactory(new PropertyValueFactory<>("valorMedio"));
 		

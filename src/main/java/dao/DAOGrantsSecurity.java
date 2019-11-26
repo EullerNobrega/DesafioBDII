@@ -22,7 +22,7 @@ public class DAOGrantsSecurity extends DAOGenericoJPA<Grants>{
 	
 	public void inserirPermissoes(Grants g) {
 		this.getEntityManager().createNativeQuery("create user gerente; grant " + g.getPermissoesGerente() + 
-				"on " + g.getTablesGerente() +  
+				" on " + g.getTablesGerente() +  
 				" to gerente; create user frentista; grant " + g.getPermissoesFrentista() +  
 				" on " + g.getTablesGerente() +  
 				" to gerente;");

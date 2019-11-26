@@ -2,6 +2,8 @@ package controller;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import model.dto.FuncionarioDTO;
 import model.dto.HorarioPicoDTO;
 import model.dto.LucroValorDTO;
 import model.dto.TotalVendaCombustivelDTO;
+import util.PersistCombustivelCliente;
 
 public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	private DAOCombustivelCliente daoCombustivelCliente;
@@ -45,7 +48,12 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 	public List<CombustivelCliente> consultarTodos() {
 		return daoCombustivelCliente.findAll();
 	}
-
+	
+	public void ativaTrigger() {
+		PersistCombustivelCliente psc = new PersistCombustivelCliente();
+		psc.mockarValoresTriggerCartaoFidelidade();
+	}
+	
 //	SELECTS
 
 	public List<CombustivelDTO> combustiveisMaisVendidos() {

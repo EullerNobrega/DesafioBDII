@@ -8,6 +8,7 @@
    <children>
       <TableView fx:id="tableViewLucro" prefHeight="533.0" prefWidth="448.0">
         <columns>
+          <TableColumn fx:id="columnData" prefWidth="142.0" text="Data" />
           <TableColumn fx:id="columnLucro" prefWidth="135.0" text="Lucro" />
           <TableColumn fx:id="columnValor" prefWidth="141.0" text="Valor Médio" />
         </columns>

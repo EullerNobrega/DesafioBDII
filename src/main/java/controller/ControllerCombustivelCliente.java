@@ -49,7 +49,7 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		return daoCombustivelCliente.findAll();
 	}
 	
-	public void ativaTrigger() {
+	public void ativaTriggerCartaoFidelidade() {
 		PersistCombustivelCliente psc = new PersistCombustivelCliente();
 		psc.mockarValoresTriggerCartaoFidelidade();
 	}

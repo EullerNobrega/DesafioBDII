@@ -91,6 +91,17 @@ public class PersistFornecimento implements persistEntity {
 		}
 
 	}
+	
+	public void mockarValoresTriggerVolumeTanque() {
+		Fornecedor f = selectFor((long) 1);
+		Combustivel c = selectCom((long) 1);
+		Tanque t = selectTan((long) 1);
+		Preco pr = selectPr((long) 1);
+		Posto p = selectPos((long) 1);
+		
+		controllerFornecimento.inserir(new Fornecimento(f, c, p, t, (pr.getValor() * 2100), 2100, LocalDateTime.of(2018, Month.AUGUST, 20, 4, 30)));
+
+	}
 
 	private Fornecedor selectFor(Long id) {
 		ControllerFornecedor<Fornecedor> controllerFornecedor = new ControllerFornecedor<Fornecedor>();

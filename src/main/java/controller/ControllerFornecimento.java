@@ -7,6 +7,7 @@ import dao.DAOFornecimento;
 import model.AbstractEntity;
 import model.Fornecimento;
 import model.dto.FornecedorDTO;
+import util.PersistFornecimento;
 
 public class ControllerFornecimento<T extends AbstractEntity> {
 	private DAOFornecimento daoFornecimento;
@@ -57,6 +58,11 @@ public class ControllerFornecimento<T extends AbstractEntity> {
 		
 		return list;
 
+	}
+	
+	public void ativarTriggerVolumeTanque() {
+		PersistFornecimento pf = new PersistFornecimento();
+		pf.mockarValoresTriggerVolumeTanque();
 	}
 
 }

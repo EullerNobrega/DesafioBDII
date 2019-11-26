@@ -70,7 +70,7 @@ public class PersistCombustivelCliente implements persistEntity {
 		Preco p5 = selectPreco((long) 2);
 		Preco p6 = selectPreco((long) 6);
 
-		list.add(new CombustivelCliente(p, c1, cl1, f1, t1, LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 15.00,
+		list.add(new CombustivelCliente(p, c1, cl1, f1, t1, LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 45.00,
 				p1.getValor() * 45.0));
 		list.add(new CombustivelCliente(p, c2, cl2, f2, t2, LocalDateTime.of(2018, Month.JULY, 12, 11, 0), 10.0,
 				p2.getValor() * 10.0));
@@ -118,8 +118,21 @@ public class PersistCombustivelCliente implements persistEntity {
 		
 		for (int i = 0; i <= 4; i++) {
 			controllerCombustivelCliente.inserir(new CombustivelCliente(p, c, cl, f, t,
-					LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 15.00, pr.getValor() * 45.0));
+					LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 35.00, pr.getValor() * 35.0));
 		}
+	}
+	
+	public void mockarValoresTriggerConsumoVolumeTanque() {
+		Posto p = selectPos((long) 2);
+		Cliente cl = selectCliente((long) 2);
+		Tanque t = selectTanque((long) 2);
+		Combustivel c = selectCombustivel((long) 2);
+		Funcionario f = selectFuncionario((long) 3);
+		Preco pr = selectPreco((long) 2);
+		
+		controllerCombustivelCliente
+		.inserir(new CombustivelCliente(p, c, cl, f, t,
+				LocalDateTime.of(2018, Month.JUNE, 12, 12, 0), 20.0, pr.getValor() * 20.0));
 	}
 
 	private Funcionario selectFuncionario(Long id) {

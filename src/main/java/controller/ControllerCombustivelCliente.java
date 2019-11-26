@@ -54,6 +54,11 @@ public class ControllerCombustivelCliente<T extends AbstractEntity> {
 		psc.mockarValoresTriggerCartaoFidelidade();
 	}
 	
+	public void ativaTriggerConsumoTanque() {
+		PersistCombustivelCliente psc = new PersistCombustivelCliente();
+		psc.mockarValoresTriggerConsumoVolumeTanque();
+	}
+	
 //	SELECTS
 
 	public List<CombustivelDTO> combustiveisMaisVendidos() {

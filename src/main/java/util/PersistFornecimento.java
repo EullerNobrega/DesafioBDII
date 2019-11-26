@@ -99,7 +99,9 @@ public class PersistFornecimento implements persistEntity {
 		Preco pr = selectPr((long) 1);
 		Posto p = selectPos((long) 1);
 		
-		controllerFornecimento.inserir(new Fornecimento(f, c, p, t, (pr.getValor() * 2100), 2100, LocalDateTime.of(2018, Month.AUGUST, 20, 4, 30)));
+		controllerFornecimento
+		.inserir(new Fornecimento(f, c, p, t, (pr.getValor() * 2100), 2100,
+				LocalDateTime.of(2018, Month.JUNE, 12, 12, 0)));
 
 	}
 

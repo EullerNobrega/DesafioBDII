@@ -86,14 +86,6 @@ public class CombustivelCliente extends AbstractEntity {
 		this.litro = litro;
 	}
 
-	public Double getValorTotao() {
-		return valorTotal;
-	}
-
-	public void setValorTotao(Double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
 	public Double getValorTotal() {
 		return valorTotal;
 	}

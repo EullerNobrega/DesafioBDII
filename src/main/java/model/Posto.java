@@ -1,3 +1,4 @@
+
 package model;
 
 import javax.persistence.Entity;
@@ -18,18 +19,21 @@ public class Posto extends AbstractEntity {
 	@CNPJ
 	private String CNPJ;
 	private String bandeira;
-
-	public Posto(Endereco endereco, String razaoSocial, String nomeFantasia, String cNPJ, String bandeira) {
-		super();
-		this.endereco = endereco;
-		this.razaoSocial = razaoSocial;
-		this.nomeFantasia = nomeFantasia;
-		CNPJ = cNPJ;
-		this.bandeira = bandeira;
-	}
-
+	private double caixa;
+	
+	
+	
 	public Posto() {
 		super();
 	}
+
+	public double getCaixa() {
+		return caixa;
+	}
+
+	public void setCaixa(double caixa) {
+		this.caixa = caixa;
+	}
+	
 
 }

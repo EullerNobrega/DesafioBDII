@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox prefHeight="398.0" prefWidth="542.0" style="-fx-background-color: orange;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <Label prefHeight="17.0" prefWidth="81.0" text="FRENTISTA">
+         <VBox.margin>
+            <Insets left="30.0" top="30.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </Label>
+      <CheckBox mnemonicParsing="false" text="INSERT">
+         <VBox.margin>
+            <Insets left="30.0" top="50.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="DELETE">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="SELECT">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="UPDATE">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="FUNCIONARIO">
+         <VBox.margin>
+            <Insets left="30.0" top="50.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="FORNECEDOR">
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="95.0" text="ENDERECO">
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="TANQUE">
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="PREÇO">
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox mnemonicParsing="false" text="COMBUSTIVEL">
+         <VBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
+   </children>
+</VBox>

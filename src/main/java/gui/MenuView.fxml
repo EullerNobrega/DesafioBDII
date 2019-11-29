@@ -15,7 +15,6 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Faturamento">
                   <items>
-                    <MenuItem fx:id="menuItemGanhosMensais" mnemonicParsing="false" onAction="#onMenuItemRankingCombustive" text="Ranking Fornecedor" />
                         <MenuItem fx:id="menuItemCombustiveis" mnemonicParsing="false" onAction="#onMenuItemCombustiveis" text="Combustível mais Vendidos" />
                         <MenuItem fx:id="menuItemClienteFidelidade" mnemonicParsing="false" onAction="#onMenuItemCartaoFidelidade" text="Cliente Fidelidade" />
                         <MenuItem fx:id="menuItemQtdAbastecimentoHora" mnemonicParsing="false" onAction="#onMenuItemQtdAbastecimentoHora" text="Horário de Pico " />
@@ -24,6 +23,11 @@
                         <MenuItem fx:id="meniItemTopFuncionario" mnemonicParsing="false" onAction="#onMenuItemTopFuncionario" text="Top Funcionarios" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Permissões">
+                    <items>
+                      <MenuItem fx:id="menuItemFrentista" mnemonicParsing="false" onAction="#onMenuItemPermissao" text="Frentista/Gerente" />
+                    </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Gráficos">
                   <items>
                     <MenuItem fx:id="menuItemNivelCombustiveis" mnemonicParsing="false" onAction="#onMenuItemNivelCombustiveis" text="Combustíveis mais Vendidos" />

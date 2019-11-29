@@ -41,4 +41,14 @@ public class Fornecimento extends AbstractEntity{
 		super();
 	}
 
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+	
+	
+
 }

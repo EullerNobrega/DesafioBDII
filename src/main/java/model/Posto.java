@@ -23,6 +23,17 @@ public class Posto extends AbstractEntity {
 	
 	
 	
+	public Posto(Endereco endereco, String razaoSocial, String nomeFantasia, String cNPJ, String bandeira,
+			double caixa) {
+		super();
+		this.endereco = endereco;
+		this.razaoSocial = razaoSocial;
+		this.nomeFantasia = nomeFantasia;
+		CNPJ = cNPJ;
+		this.bandeira = bandeira;
+		this.caixa = caixa;
+	}
+
 	public Posto() {
 		super();
 	}

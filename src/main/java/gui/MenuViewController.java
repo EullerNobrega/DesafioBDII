@@ -3,6 +3,8 @@ package gui;
 import java.io.IOException;
 import java.util.function.Consumer;
 
+
+
 import controller.ControllerCombustivelCliente;
 import controller.ControllerFornecimento;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import model.CombustivelCliente;
 import model.Fornecimento;
@@ -57,6 +60,15 @@ public class MenuViewController {
 	
 	@FXML
 	private MenuItem menuItemFrentista;
+	
+	@FXML
+	private MenuItem menuitemAtivaCartao;
+	
+	@FXML
+	private MenuItem menuItemConsumoTanque;
+	
+	@FXML
+	private MenuItem menuItemVolumeTanque;
 
 	@FXML // ranking fornecedor
 	public void onMenuItemRankingCombustive() {
@@ -151,6 +163,28 @@ public class MenuViewController {
 	public void onMenuItemPermissao() {
 		loadView("/gui/PermissaoFrentista.fxml",x->{});
 	}
+	
+	@FXML
+	public void onMenuItemAtivaCartao() {
+		ControllerCombustivelCliente<CombustivelCliente> s = new ControllerCombustivelCliente<>();
+		s.ativaTriggerCartaoFidelidade();
+		Alerts.showAlert("CARTÃO FIDELIDADE","ATIVADO COM SUCESSO!" , null, AlertType.CONFIRMATION);
+	}
+	
+	@FXML
+	public void onMenuItemConsumoTanque() {
+		ControllerCombustivelCliente<CombustivelCliente> s = new ControllerCombustivelCliente<>();
+		s.ativaTriggerConsumoTanque();
+		Alerts.showAlert("CONSUMO TANQUE","CONSUMO ATUALIZADO COM SUCESSO!" , null, AlertType.CONFIRMATION);
+	}
+	
+	
+	@FXML
+	public void onMenuItemVolumeTanque() {
+		ControllerFornecimento<Fornecimento> s = new ControllerFornecimento();
+		s.ativarTriggerVolumeTanque();
+		Alerts.showAlert("VOLUME TANQUE","VOLUME DO TANQUE ATUALIZADO COM SUCESSO!" , null, AlertType.CONFIRMATION);
+	}
 
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
 
@@ -160,7 +194,7 @@ public class MenuViewController {
 			Scene mainScene = LoginViewController.getScene();
 			VBox mainVbox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 			Node mainMenu = mainVbox.getChildren().get(0);
-
+			
 			mainVbox.getChildren().clear();
 			mainVbox.getChildren().add(mainMenu);
 			mainVbox.getChildren().addAll(newVBox.getChildren());

@@ -7,27 +7,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="398.0" prefWidth="542.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PermissaoController">
+<VBox prefHeight="576.0" prefWidth="541.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PermissaoController">
    <children>
-      <Label prefHeight="17.0" prefWidth="81.0" text="FRENTISTA">
+      <Label prefHeight="64.0" prefWidth="564.0" text="FRENTISTA                                                                            GERENTE">
          <VBox.margin>
             <Insets left="30.0" top="30.0" />
          </VBox.margin>
          <padding>
             <Insets bottom="10.0" />
          </padding>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
       </Label>
-      <Label text="GERENTE">
-         <VBox.margin>
-            <Insets bottom="10.0" left="400.0" top="-30.0" />
-         </VBox.margin>
+      <Label prefHeight="32.0" prefWidth="541.0" text="                                            OPERAÇÕES">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
       </Label>
-      <CheckBox fx:id="checkInsertG" mnemonicParsing="false" text="INSERT">
+      <Label prefHeight="17.0" prefWidth="911.0" style="-fx-background-color: #333333;" />
+      <CheckBox fx:id="checkInsertG" layoutX="100.0" layoutY="50.0" mnemonicParsing="false" text="INSERT">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <VBox.margin>
-            <Insets left="400.0" top="-4.0" />
+            <Insets left="400.0" top="5.0" />
          </VBox.margin>
       </CheckBox>
       <CheckBox fx:id="checkInsertF" mnemonicParsing="false" text="INSERT">
@@ -86,23 +90,27 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="checkFuncionarioG" mnemonicParsing="false" text="FUNCIONARIO">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
+      <Label prefHeight="37.0" prefWidth="521.0" text="                                         CONSULTAS">
          <VBox.margin>
-            <Insets left="400.0" top="-4.0" />
+            <Insets bottom="30.0" left="20.0" />
          </VBox.margin>
-      </CheckBox>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="983.0" style="-fx-background-color: #333333;" />
       <CheckBox fx:id="checkFuncionarioF" mnemonicParsing="false" text="FUNCIONARIO">
          <VBox.margin>
-            <Insets left="30.0" top="-4.0" />
+            <Insets left="30.0" top="10.0" />
          </VBox.margin>
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </CheckBox>
-      <CheckBox fx:id="checkFornecedorG" mnemonicParsing="false" text="FORNECEDOR">
+      <CheckBox fx:id="checkFuncionarioG" mnemonicParsing="false" text="FUNCIONARIO">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -118,7 +126,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="checkEnderecoG" mnemonicParsing="false" prefHeight="17.0" prefWidth="95.0" text="ENDERECO">
+      <CheckBox fx:id="checkFornecedorG" mnemonicParsing="false" text="FORNECEDOR">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -134,7 +142,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="checkTanqueG" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="TANQUE">
+      <CheckBox fx:id="checkEnderecoG" mnemonicParsing="false" prefHeight="17.0" prefWidth="95.0" text="ENDERECO">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -150,7 +158,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="checkPrecoG" mnemonicParsing="false" text="PREÇO">
+      <CheckBox fx:id="checkTanqueG" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="TANQUE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -166,12 +174,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="checkCombustivelG" mnemonicParsing="false" text="COMBUSTIVEL">
+      <CheckBox fx:id="checkPrecoG" mnemonicParsing="false" text="PREÇO">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <VBox.margin>
-            <Insets bottom="5.0" left="400.0" top="-4.0" />
+            <Insets left="400.0" top="-4.0" />
          </VBox.margin>
       </CheckBox>
       <CheckBox fx:id="checkCombustivelF" mnemonicParsing="false" text="COMBUSTIVEL">
@@ -181,6 +189,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+      </CheckBox>
+      <CheckBox fx:id="checkCombustivelG" mnemonicParsing="false" text="COMBUSTIVEL">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" left="400.0" top="-4.0" />
+         </VBox.margin>
       </CheckBox>
       <Button fx:id="btnEnviarF" mnemonicParsing="false" onAction="#getGrantFrentista" style="-fx-background-color: #333333;" text="ENVIAR" textFill="#f5f2f2">
          <VBox.margin>
